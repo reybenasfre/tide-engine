@@ -195,6 +195,25 @@
   .tabs button[aria-selected="true"]{color:var(--ink);font-weight:600}
   .tabs button span{display:block;font-size:17px;line-height:1.2;margin-bottom:2px}
 
+  .edu details{background:var(--card);border-radius:10px;margin-top:8px;
+    box-shadow:0 1px 0 var(--shadow);overflow:hidden}
+  .edu summary{padding:14px 16px;cursor:pointer;list-style:none;display:flex;
+    justify-content:space-between;align-items:baseline;gap:10px}
+  .edu summary::-webkit-details-marker{display:none}
+  .edu summary b{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:17.5px;
+    letter-spacing:-.01em}
+  .edu summary > span{font-size:12px;color:var(--ink-faint);white-space:nowrap}
+  .edu details[open] summary{border-bottom:1px solid var(--rule)}
+  .edu .inner{padding:14px 16px 17px}
+  .edu .inner h4{margin:0 0 5px;font-size:12.5px;font-weight:600;letter-spacing:.05em;
+    color:var(--ink-faint)}
+  .edu .inner p{margin:0 0 15px;font-size:15px;line-height:1.5;color:var(--ink-soft)}
+  .edu .inner p:last-child{margin-bottom:0}
+  .edu .here{display:inline-block;margin-left:7px;font-size:11px;color:var(--brass);
+    border:1px solid var(--brass);border-radius:999px;padding:1px 7px;white-space:nowrap}
+  .edu .prose{font-size:15px;line-height:1.55;color:var(--ink-soft);margin:14px 0 0}
+  .edu .prose b{color:var(--ink);font-weight:600}
+
   .fab{position:fixed;right:16px;bottom:calc(env(safe-area-inset-bottom) + 74px);z-index:11;
     border:none;border-radius:999px;background:var(--ink);color:var(--ground);
     padding:13px 18px;font-size:14.5px;font-weight:600;box-shadow:0 4px 14px var(--shadow)}
@@ -340,6 +359,20 @@
     </p>
   </section>
 
+  <!-- ============ LEARN ============ -->
+  <section class="view edu" id="v-learn" hidden>
+    <div class="sect-h"><h2>What's actually happening</h2><span id="edu-note"></span></div>
+    <div class="prose" id="edu-intro"></div>
+    <div id="edu-phases" style="margin-top:16px"></div>
+    <div class="sect-h"><h2>Worth knowing</h2><span>caveats</span></div>
+    <div class="prose" id="edu-caveats"></div>
+    <p class="footnote">
+      This is general physiology, not medical advice, and not a description of her. Anything
+      that seems severe or new, or that she's worried about, is a conversation with a doctor
+      rather than with an app.
+    </p>
+  </section>
+
   <!-- ============ CYCLE ============ -->
   <section class="view" id="v-cycle" hidden>
     <div class="sect-h"><h2>Her cycle</h2><span id="src-note"></span></div>
@@ -368,6 +401,7 @@
     <button role="tab" data-v="ahead" aria-selected="false"><span>◔</span>Ahead</button>
     <button role="tab" data-v="play" aria-selected="false"><span>◈</span>Playbook</button>
     <button role="tab" data-v="cycle" aria-selected="false"><span>◍</span>Cycle</button>
+    <button role="tab" data-v="learn" aria-selected="false"><span>◎</span>Learn</button>
   </div>
 </nav>
 
@@ -1008,6 +1042,98 @@
     premenstrual:["Comfort","Affection","Communication","Boundaries","Stress"]
   };
 
+  // Education content. Population-level physiology only: what is happening, what
+  // people commonly report, and explicitly what it does not tell you about her.
+  var EDU_INTRO =
+    "The cycle is counted from <b>day one, the first day of real bleeding</b>, to the day before the next " +
+    "period starts. It runs on two main hormones, <b>estrogen</b> and <b>progesterone</b>, plus two " +
+    "signals from the brain, <b>FSH</b> and <b>LH</b>, that tell the ovaries what to do. The whole thing " +
+    "is one system with a single job: mature an egg, release it, and prepare the uterus in case it gets " +
+    "fertilised. Most of what people notice month to month is downstream of that.";
+
+  var EDU = [
+    {
+      key:"menstrual", name:"Menstruation", days:"Day 1 to about day 5",
+      what:"Estrogen and progesterone are both at their lowest. The lining of the uterus, built up over " +
+           "the previous month, breaks down and is shed, which is the bleeding itself. The uterus contracts " +
+           "to push it out, driven by compounds called prostaglandins, and those contractions are what " +
+           "cramps are. Blood loss also means iron loss, which is part of why fatigue is common in these " +
+           "days. Near the end of this stretch FSH starts to rise and the next cycle is already beginning.",
+      common:"Cramping, heavier fatigue in the first two days, lower back pain, headaches. Volume and pain " +
+             "vary enormously between people, and between cycles for the same person.",
+      not:"It doesn't tell you her mood. Plenty of people feel relief once bleeding starts, especially if " +
+          "the week before was rough."
+    },
+    {
+      key:"follicular", name:"Follicular phase", days:"Bleeding ends until ovulation",
+      what:"FSH from the pituitary stimulates a batch of follicles in the ovaries, each holding an " +
+           "immature egg. Those follicles produce estrogen as they grow, so estrogen climbs steadily " +
+           "through this phase, and the rising estrogen rebuilds the uterine lining. One follicle becomes " +
+           "dominant and the rest are reabsorbed. This is the phase whose length varies most, which is " +
+           "why cycles run anywhere from 21 to 35 days.",
+      common:"Many people report energy, mood and sociability rising along with estrogen, and more " +
+             "appetite for new things. Skin often clears. Pain and fatigue from the previous days ease off.",
+      not:"Rising estrogen is no guarantee of a good week. Work, sleep and everything else in her life " +
+          "still outweigh it."
+    },
+    {
+      key:"fertile", name:"Ovulation", days:"About 14 days before the next period",
+      what:"Estrogen peaks, and that peak triggers a sharp surge of LH. Within roughly a day of the surge " +
+           "the dominant follicle ruptures and releases its egg, which stays viable for somewhere between " +
+           "12 and 24 hours. Cervical mucus becomes clear and stretchy, which helps sperm travel. Basal " +
+           "body temperature rises slightly just afterwards, which is how temperature tracking detects " +
+           "that ovulation has already happened.",
+      common:"Often the highest-energy and most social stretch. Some people get a one-sided twinge called " +
+             "mittelschmerz, some notice breast tenderness or higher libido, and many notice nothing at all.",
+      not:"Tide estimates this day from cycle length; it does not know it. Only an LH test or temperature " +
+          "tracking gets close, and even then it is looking backwards."
+    },
+    {
+      key:"luteal", name:"Luteal phase", days:"Ovulation until the next period",
+      what:"The emptied follicle collapses into a structure called the corpus luteum, which produces " +
+           "progesterone. Progesterone maintains the uterine lining and holds basal body temperature " +
+           "slightly higher for the rest of the cycle. If no pregnancy occurs, the corpus luteum breaks " +
+           "down after about 10 to 14 days and both hormones fall, which starts the next period. This " +
+           "phase is the stable one, which is exactly why Tide counts back 14 days from the expected " +
+           "period to place ovulation.",
+      common:"Often steady early on. Progesterone is mildly sedating for many people, so some report " +
+             "feeling calmer or slower. Appetite changes and breast tenderness are common. Later in the " +
+             "phase things frequently get harder.",
+      not:"A predictable phase length is not a predictable person. This is her body's clock, not her " +
+          "state of mind."
+    },
+    {
+      key:"premenstrual", name:"The premenstrual stretch", days:"The last few days before bleeding",
+      what:"Not a separate phase medically, just the end of the luteal one, but it earns its own name " +
+           "because of what happens there: estrogen and progesterone both drop sharply as the corpus " +
+           "luteum breaks down. That withdrawal, and its knock-on effect on brain chemistry including " +
+           "serotonin, is the leading explanation for premenstrual symptoms. Sensitivity to the drop " +
+           "varies between people far more than the size of the drop itself does.",
+      common:"Irritability, low mood, anxiety, poor sleep, bloating, sore breasts, headaches, food " +
+             "cravings. A large share of people get some of this. A small share get PMDD, a severe and " +
+             "diagnosable condition that is not the same thing as ordinary PMS.",
+      not:"This is the most misused piece of cycle knowledge there is. It never tells you why she's upset " +
+          "about something, and offering it as an explanation during a disagreement is the fastest way to " +
+          "make things worse. Some people sail through this week entirely."
+    }
+  ];
+
+  var EDU_CAVEATS =
+    "<b>28 days is an average, not a standard.</b> Anywhere from 21 to 35 days is ordinary, and the same " +
+    "person's cycles routinely vary by a few days. Tide works out her actual average once you have logged " +
+    "two or more.<br><br>" +
+    "<b>Hormonal birth control changes everything above.</b> Combined pills, the implant, the shot and " +
+    "hormonal IUDs mostly work by suppressing ovulation, so there is no estrogen peak, no corpus luteum " +
+    "and no natural luteal phase. Bleeding on the pill is a withdrawal bleed rather than a period. If she " +
+    "uses hormonal contraception, the phase model in this app largely does not apply, and what you " +
+    "observe directly matters far more than anything it predicts.<br><br>" +
+    "<b>Not every cycle ovulates.</b> Anovulatory cycles happen, more often around puberty and " +
+    "perimenopause, or with conditions like PCOS or thyroid problems. A cycle can look normal from the " +
+    "outside without an egg having been released.<br><br>" +
+    "<b>Variation between people is larger than variation between phases.</b> Averages across thousands " +
+    "of people are genuinely useful for knowing what to ask about. They are close to useless for " +
+    "predicting one person on one day, which is why every screen in this app points you at asking her.";
+
   var TALK = {
     fertile:{v:"good",t:"Often the best window. Energy and patience usually both up."},
     follicular:{v:"good",t:"Commonly open and forward-looking. Good for plans and hard asks."},
@@ -1086,6 +1212,7 @@
     if(view === "today") renderToday();
     if(view === "ahead") renderAhead();
     if(view === "play")  renderPlay();
+    if(view === "learn") renderEdu();
     if(view === "cycle") renderCycle();
   }
 
@@ -1496,6 +1623,26 @@
     });
   }
 
+  /* ---------- learn ---------- */
+  function renderEdu(){
+    var here = phaseFor(st.day, st.len);
+    var cur = EDU.filter(function(p){ return p.key === here; })[0];
+    document.getElementById("edu-note").textContent = "she's in " + cur.name.toLowerCase();
+    document.getElementById("edu-intro").innerHTML = EDU_INTRO;
+    document.getElementById("edu-caveats").innerHTML = EDU_CAVEATS;
+    document.getElementById("edu-phases").innerHTML = EDU.map(function(p){
+      var on = p.key === here;
+      return '<details'+(on?" open":"")+'>'+
+        '<summary><b>'+p.name+(on?'<span class="here">where she is</span>':'')+'</b>'+
+        '<span>'+p.days+'</span></summary>'+
+        '<div class="inner">'+
+          '<h4>What\'s happening</h4><p>'+p.what+'</p>'+
+          '<h4>Commonly reported</h4><p>'+p.common+'</p>'+
+          '<h4>What it does not tell you</h4><p>'+p.not+'</p>'+
+        '</div></details>';
+    }).join("");
+  }
+
   /* ---------- cycle ---------- */
   function renderCycle(){
     var inDays = daysBetween(today(), st.nextStart);
@@ -1549,7 +1696,7 @@
   /* ================= events ================= */
   function setView(v){
     view = v;
-    ["today","ahead","play","cycle"].forEach(function(n){
+    ["today","ahead","play","cycle","learn"].forEach(function(n){
       document.getElementById("v-"+n).hidden = n !== v;
     });
     Array.prototype.forEach.call(tabs.querySelectorAll("[data-v]"), function(b){
