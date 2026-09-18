@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tide</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tide">
+<meta name="theme-color" content="#0C2027">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAApDklEQVR4nO19eZhcV3XnOfe+pdau7qpe1K3WvtiSLNmS5UXYwuBtwMDHGpYkhISZBCczEEiGhIQwsQcyyQwhkyHgMTBhMPkCIXYw4GAmYBtsC4xtWV5ky4v2Xb1vtb3l3jN/vOrq6u736r2qetVdkvr3td2tqrvVvb977tnuK+y98S1wwYOa3iIF7Yhc//Qv71aY5v+rtk9arXEAUGpqrCUR/so3v/eaagUsXMdIfKooizy3LYjGJ6QZS19T4Vo/gkd5VmMzS7iIoNBFIToW7DO6dOTdd5hCw0d9qKvxpWPFD43MT0jivbnFvKssHStL8MQSOZbgCWWxTcEWxJK5UsKSzlEXwvcp1FJySedYwqJj6VjxxcVrrixJjvMNtHCbWQnUFzZ9HPVjEQVfvTuzpohbre96hARrBAEEDbx5ddDKpAkHi0S9ELqtI0g7F43pHK5VL3DGNDsM2zK2SlNC9vNHdUHSpXlnSrUSIcgDn14rGl+QfI7WtIfCGtViWST+6T819jivcGuaskFETdinYX1N1Jd51Wix5p0ss2q1ZiZYC/L14sBs23XJz7EETyzFVkKVUwtslIRVxqNWax4rzUPoW6FWpSMsL1jwruuP+l5c5GhBKdm8ITXe8pLOsQRPLOkcfmhe6sZCahV1OWNa08/RFAR3GoXcSZ3FgtwLaK5GerEcK3WyYNE2Tkvs2IuCHAvFjFpiJ80LkoSHi4IcHqi6NPUxIxzUTDLv0TTEQWUhM4sWHiEEYJovPxpqJ8jy1bHERHCh+jka43sjtS+onaaUP80Fk3RxPqwPQTOTQRtteHpkM5LjfJjThUCI8fymd1qVX423eYHrHGGgDuUjYJUgWkV1b0ewFgINxqX8xWytBEHdaukiiaBGW5r1eS9MhbQ+kNe/6kj3uiC8HUuSo4TWW6Fgtm4zcRHFVqqg6hI0monZWDG/Ah7Dm/dqPZG3pahsPYpm0HIBVEV/7lUvECj0Vqf5tHSsBMb5s4vCGunFrpAGja+0prXSZDfERa1zBD4l6oxNBCjVYEJGiOkjLlUC6Bznu1+90SSfBuRH42sXKK4W7O2gg6nwkAY0yF3QyqRZeO9RPZUadHX41CTPfwRFAzqHa3+LzphQD0laALHRHIQSrAlb53BnzEJRJlQFbaatxXJ1+PYbcGA1jH8uOZoPr8GFS5omMaPO+jUsW+giJjxTtu6WGl9Z/xn06iPg1NcyGM96dZwsgXXARiOujfdSrUrYOgeEq3Y0Ux2stXb4G7xBsdHcMwWa4udYRLWj4ZPFI1BRH0dD2dE1qx0NR1Vmai2Uh9R1plpJ5wh5iwTTJf08FM04MHybrPBzhNN+fatcw3KWO6jTfdVAwWboHEFCbgEUF38pUbsXpaJwSJKj6fpHUzgRoHiN7sUGhtHERmrorql+jrmdub3YPP2jxpMlsCCofYoaDZoEKNOAphmwZAD3eegI3e3RzOBksNhYPe3O/BmgTG1th9EItFbIfvbHQADEEmGIQBIQAELp/6ziLWqa9KuTGbV4NkPxc896p74G3dpc8EywANLBWXhbgGGRKQgAFIYRFTkCATAAQZA3yZYEABpHXUGFlwgUasitPoUjFA9YsB3vq5AGJ7dbyQXP53DXQsA5VBgDKSFrkC0pHWMbutStfdr6TrUvxbsTXOVABIhgCRjMijMT4tCwtf+MeWzUHs1JhUNcRcZQyhBOgoqt3UThEdRKqr9MQ3pJSxwrSMAYWQLGCzKusV2rtVsvje5aE1mR4nGdAYCQJOTM8BFgG1M5QwDIGfLkuHjiWPHHrxSeOWnmiiKpM5WDlHWyPoQDu/GAWSjXoxsTGwCAnVftDtpEc8AZ2BImi7Inwd+8Ofq2y+I7+jVNwaJFpiAhnWHOPY7K+44z0DhGVDRt2nfKfODF3I8OFAayoi3CFAal6oERjirXoNioN9Ya7pkCi0sORGAIEwWZ1Nn7dsR/dWdiQ6dqCsqZRDSjcvrC0TYQIa6hxvHgsPWtvdnv7MtNGTIVZZLqOr6b5TIPcKDUJTZCZwYAYOfO64O2Eio4Q8OWeZNuvTT2sRtSO1ZoOZMKFjEEVq9JKwkkQVTFuIb7TppffHTix6/kYxrqChOyLvW+VooELu9jB/m8Cy5kqG8kVYthZuf1sLAJXI7iOV6QKzuUj92QetflcQLIGsQDi4rqIAJBkNARAb77fO6Lj06cGLPbo2y+FuKzArXKjoVhhluBZogNKJOjOkKkDkOQBFOGvOWS2J23daxMK2N56bweLhxJ0RFjJ0btP39w7Cev5pM6c3oHXyW+ZoHh32RF240pkm7vLiY5PCvXWJ4zMGySEv7wpvaPXNdWtKhok9LMe1W2hIiCERW/8vPJLzw8jgx0Batpqc1TNUoFwzdkmsQMAMDMldcFbas+OAwiUDhOFmV3gv/NuzKvXxcdK9QgMEpu0OnPgljynwZBSYRE2WOHC3/w3ZHBrGiLMFtQeWAw63dFl7XB7xhynLtEpT/m91gu4N9VqMLDu3DzyQEAAAqDsby8vF//u1/pXJ1WxwsyiMBwzBCGoCmocuCIiI5KQZYA0yYZ2KixJbRH2bFR66P3Dj9/yuiIMbtCfjRqwdau/blXaBkj1gGmPcgRog7AGYzm5Fu2xP76nZ0RFfMmcT9mONs9omJUxbxJ5ybt0+NiKCvypoxprCvBl7fzZW1KTMOCRUWLIIAQEhKc8p+8f/iHL+XTcSbmqqi1K6Gw+MxwaTAkcnh6SL0q1UQaR/iP5OSHrkn+19vSlgRfZjjSIq4jZ/jagPnwa4VHDxYODVuTBWmKkqjQOLZF2fpO9YYN0Zs2Rjf2aEJSzqDqUoQzyJukKfjl93ZlHhz9xpNT6RiD8vw0Vdto5iWDcDw0bsD0jte5vVx7Q/NfQQSgqSJ99IbUf76pI2tIZ2mrQEiIqBhR8LnTxtd/Ofnwq4WJglA56gpyhuW6kkBIMmyyBKWi/KZLoh++tu2K5XrRpqLlQz5nDAmd/fXDY198dCKpI8ydz+DbLliV2cU8xIZvOwjguPPQu2MsM73aeGYq+ymk7uRoGAyBALJF+Zk3p393d2okJ6urkI7KmYqwU+P23Xsm/nnfVMGihM4UNlcbLY17Wie1JWQNGVXxvTuSt1+f6m9XJoqB+srE2V2PT3z2R6PJCANqIG+jlk3fkMNtAQ8UB5jevmvea43qG4gABFOG/PPb0h+5rn0kJ6rvZiFB5RDX2H3PZf/qx6PnJkVbhPHAkRGn5GRR9rTxP7k1/Z4rEjlTWgJ8O83E+Vd+Pn7nD0eTOs7suuAIWiHA9zO1HjPAnRyeZWf98iyFAABZQ/7FWzs/dG1yNCerL5ItIamzrCHveHDkX57LRlUfb/d8OKK25I+36D1XJO64LZPQ2ZThYxMJCek4u+eXk59+YDihV+gfgXqtbSUaYoZbmWbYrnNQCzmqNYOVv6eK8o7b0r9zXWokADMyMbbvlPHJ+4cPnDM7YkHjZF6jYAhjebl5mfb5d3bu6NdH8v78yMTZV38+cccPR5KRYPyofYM2xgx3G6p+Oyvw+DG9/drArUJ1sVFmxp+/JfMRP2YQAEloj7EHXsx96vtDWYOSOto1RthdoTCYMiih41+9vettl8XH8xJZtXE7/PjKnok7Hxwu6R9VWg+ohFa877NuvvxZjAPFAStlYAb9Ifcfx2oFGM/LP3tT5vbr/ZhBQATtMXb34xO/++0By6aEhraoaSSeP7aAhIaWTb/77YG7H59ojzGqKo04g5GcvH136s/elBnPSwTAKu3PfAC/kZQK+pWs3pp0eYsClAnlJ6x7K4QMxvLyD2/quH13ajjrwwxESEXYZ380etdj4+0xBgC2DNPtZkvgDJMRvPPBkaGs/Zk3ZyaL0unXFZzBcFbevrs9a8gvPDzWEWPkJcNq2XmBLKAqZYLJDERgFR9Mkke35FK7OsK5muBsvo/f2PHJW9Jjecm8mSEJOEJExT/9wfDXn5jscLY1ANQ6cB+QlIAI7TH88qPjBZPufGumaJHwdrQ4WQSfvCVtSfjbR8YycTbXVqpL4/OpU696Va7GGZg25QxRDhXFdaa5Bxdr7iuEBGOFwVBW/PZ17Z+6NT2Wlzgvpa8MSaAwUDn+4XeH/umZqc64m1VS581Kt9cIiCAdZ//nifGsKT7/zm5LkC3d+YEAgDCWl5+6NZ0tiq/9fLwrwUs6UL0pPw0xw7uNGWYgTBRkb0r5lStTW/oiAPDSmeJPXp46N2G3Rfmsua2LhY0eK5zBaF5+8JrUHW/pnHK8Tx4lJQFnwBn+wX2D9z47NTP1cxCaACk1JCR0xdk/7Z0UAv763d0EJKrwwzG13tJp2PQPT010xrktWosZZXDE8YL4d5sTn31Hz6q05pwliHhiNPPp75176EA2GWGyrNPUBey4/Jr6agIAQ8iZtHNl5B8/3Cek56aE6dNEV/E//dPA956f6kpyW7gOZ9avwPA35BSOQ1P2Oy5Pfun9PUbV84UIGEJExd//54F/eXaqM1ELP3xdGhXF6ivjvKpwHMna796R+rsP9FmCCpbE6UoxnQHA+79yYu/xfFznsgHfQEOZNgTAET55a1rjaImqzGCgq/iJewd/8EK2K6G4MwPKerKHTeT54z9UW1BXQvnBC9lP3Duoq8gZeLnZEEEQGDZ94d3db9ocH8kKhQcg67RFFA4zvKoCwDQz3nRZ8gvv7S1Y0rBJYcgZcoYKx7whVYZ//OYujkiNeI0AmJtdGuiHIRUtuaFb3dKr50xP84QIOILG8RP3Dtz37GQmzmwpm2J4+f3YUmbi7L5nJz9x74DGkXv7yxmCLUECfun9y27YGBvN2QqHao3PHCV+w5gJjFUtQy5T5DSucBjN2W+4JP6lD/QRwfwjUuGYM+WWvsiGHq1oyel365kxtyWtUn42bEk9bUpURa9d6ExFTGef+t7gvfsmOxPMrsUvHjpsSZ0Jdu++yU99bzBW1V/OECxBnOFXf633dWujozkP+TE9LQQBzjaa9cu33PyXFI6jOfu6dbGvfbBfYWgJcpXWkiCqsmVtynTCWx1zTkDEghKhPMaKHwY4URCWIFex6zSRirI7Hhj61tOTXQkPPWNhYQvoSvBvPT15xwNDqSgD75ljCIZNuoJ3faB32/LIeF4oc5aCyr+9Z6xcMggzyJ2tJWYwHM+Ly/ujd/3acl1Bw5Ze5zgCWIIm8pI5wfE6QABVPaReztBSb5IgouLBAfPkmK0rc4WHIxpTUfa5B4e/tmc8E+NhOUAb/7EFZGL8a3vGP/fgcCrKqigtnEHBovYY/8aH+i7r1cfzQkGs3D5E5O8DpcpJqV7S0x+qII7nxda+yD2/taIjxguW5B7UcNblxJj52oARUVHW4T+drlK7QlrBGwVhsiC+8thYIuJ4Ocm5VuScHZkE/8JDI1/62Wja1Z9RExAAS09kQJz21TcAISkdY1/66ejfPDTSEePSO6bDGeRNmY7ze35r+ZY+fbwgFO684+WJdIWvYlitgMJhvGBv6dPv+fCKdJznTU9mOMOKauwrPxuZKNgK1j7tFcPAjq07a64PUF4chpA15O/flPn4TRmFgWETAOgK2hK++MjIF34y0lZ1a1brAJ3TkhyHMFUGSLAEYCWXWzBH9dwPgAjjBXHn27pvf316JGdXmXEhKaaxkZz4rXtO7T9ldMSYVaN9G2xgc0sSgMJwLC+29Ue+8eGVGT9mCEmZhHLXT4fv/MG5Np3V/LyBOVPUXic5KppAmCrK3Rvi79nRtqFLA4CDQ+Z9+yYfO5hPRTyY4b3vHU5IIUkIImKcc1XhusZVrmgaIAKRbZrCEsIwhWVLIRAROWfcUTCne/OZFoLpdLKJovzs27p/e3d6JGfP1Soq4OQnj+XFf/jm6WeOFzoq/GPVumqAGVDSQMXOVdG//80VHTEfZtiSMnHlq48Nf+Z7Z5M6D7ZjXEdSQgjkAACOMGVIIcFJmckakjNI6lyUhhfgDEBARJJSWAIQ9EQs2p5MdHXEMiktFlF0DRljnDsJlFIIktI2TDNfzI9MZIfGCuNTRjYPBFzhyBm5U9KTpVlD/u37et+3MzWc9efHZEH++2+eevpYoSPGrSrHJbn36DEiN2YwHM3ZV62Jff03V6airHputi2oM6l856mxj337dFxjNee1ucgswPbLQiAHTD+Ox4n3cAZEnl6mEhBmHKKIUghpCzWqt/V2pvp7kj0ZJaIhYyQlyekzpeJYKZ0sDJ0ydtGcGhiZODU4eXbIyheZqjBPiswbCAIRGDb9r/f1vnN720jWruL1clKgLUH/8Vtn/u3FqUxCcTfO64rSzQwJgDMcydq3Xpa869f7VY7VE6dtQZmEcv++8Y9+65TOS7d7GgKVyHFlY800BESUQkrb1tvimTX96bXLI6kEEEhbkJTTYscjlEfgLD4CIGNM4YBQnMiOHjk9cuSUMZVjyjRF/OB4vYSku399+Zu3JIer8kMSqBwY4p/ef+4ffznWEec0Z30bY4YjucZy4ld3dfzlu/okgZc/w4EtqDOhPLh/8iPfPMERFG/nb63jwfYt0+RYyJv2AIhIRMK0tHi0e9PazLp+NRqRtpBCwLTmURMcEjDOmcKtQnHk8KnBl4+YuQLXVKev6tUZghMBuPvXlt+8OVFdfjgBgZjGvvjw8P/4t6GYxlSOolZftVthztASMmfSH7+p+2M3d+UNWSUMBNMy4ycvTX3kH05ISWp4zIBZ5PBCE0iDiLZpcVXp2riqe9NaLR6Vli2l9BQSwUFAQIwxpipmrjD48pGh144Ly1Y01e/BB8AYmDZwhLs/uPzmTT78cI6sjhj/ztPjn/n+uSlDppwruEHH6a5+ThZEXGefe2fv+67qGMuL6ncsZpjxzROCSONQxSavY1TYvmXH7PcDL05dq4iIJElYVltvV9/2S5I9ncK0pJTVRIXHqk4/Zc6zEmOMa+rUwPCZZ1+dPDvEVRWZmwipeIEhmDYpHP7+Q/2v3+jDDwAQkjpiyotnip/+7tknDufaY5whCj8Wzlf/OKIkGs+LXevjf/Gu3suWR8eqmtYwzYxHX81++P8etwVpHKWk+reW25ixffN2v3ro+mcdQMaEaXFV6d22sXvTWkAQpo0eU1BOUGCc4/yLjkQkSQpRLubeiCSuKUAw+PKRsy+8Jiybayp57S8CAOKIhk2qgnd/sP/GS/35YUtK6rxoy//2rwPfenLMlpSMcCLw9DHMfp0hIsJUUSgMP3Bt+tNv7YkobKroEwp2mPHIy1MfueeEaUtNQdnIcTKPryVtL+VNjkBMqDA6fIsJw0x0p1deuy3e2W4XTfJYVCJCRK4qgGgbpjGVMyZzRjZPQjqmLHKmJ2J6W1xPxhVdAyJh2U4t99YAlIiWGx4/8csXsoOjXNcAysmJLjYcRzAEMcAv/uryt13eVt2+BQAhQeGQ0NmTR/J/9aOBJw7lNAWd5yDO0kMqdb3pp1vlDGnatGt9/FO3LbtmbTxrCNvvOpYtqTOhPPDcxEf/8YQkaPg0cbHp/MnhhWDiY0Z7QEQpJdmiZ8u6vu2XImNeAoOIGGdMUeyimR0cnTg1kB0cMXMFYdlzVxGRq4oWjya6M6n+nkR3Wolo0ralcD+hHBFCUp559pWBlw4jZ4zNGDLzN50TlRUSPv8rfe+/un0k6yPkCUBKSka4Jeh7z0588xejz58sOA8oUxVks+63giSy7NID0C5fEf2N69Lv2N6ucpwqCsZ8VHHHB/rtJ8c++c+nOEK4GijMnop6yOEF10+FDIVpc01dtevyjjXLhWm5bnEiQsa4qpjZ/OjR0yOHTxYnpkgSUzgyVipfrkSlKiSltAUyjKSSmXUr0muWa4mYsCySHl0gck0dO3r6+BPPCdNmmkLeU8sQBEHBlHe+fdnvvD4zmvNRDwHAOfRTMT5VFHsO5r7/7MQzx/ODk1bRnOkGASIq625Trlwde/sVqes3JpIRPpEX5PcUCUcFTsf5Vx8d/i/3n4mqyLGJzAAATG1qmBxeAXsEhmgVzVgmtWb3jlim3TZMl21NBABc1+yiMfTKsaFXjxm5AlM44xwRfBxZjl+VwJEZejzadcnqrktXKxFdGCaAy2ISkaJr+ZHxo4/vy49MKBGt1AXO2TUABE4IdqooPn5z1x+9qTtvSltAldx6B0ISZ+g4iwcn7UODxsEBYyhrO08k60ooG5bp67v07jYFALKGdMpXb1NKUDjENPbfHzz3tz8ZTEY4OoE/dJN7gTD3U89vBts2XVFf266o/IiIaBWNjlV9q6/foeiq61FCREzhjLGh146f23+oOD5Vcm5Cja4kQESQQkrLjrQnl21d37VxlXTkynx+SOKaIgzr6J59o8fPqBG9ipXrxF/G8+KdO1Kff89yXcWcIYMkDgpJAKgpzqPZsVLq2YIMm0ybAPxpAQC2oLjOijb90XdO3f/MWCrGSVZZ0wDwkxkOQibHdKsIRMK0erdu6L9yCxE54bE5wyEgRdcKY5Onnjkwfvws44ypjpynenKMnZ4ZSktIIdpX9fVfuTna0WYb5nz3iRPSQ8STz7x0bv9BrqlQzedMHHEsZ1+1JvblX1+5KqON5XxMmMph0bznOzgR5YCf0BbUEVeOjxi/980Te4/m2uOKmPGmNJEZAIBtl17ujLeeblxbdNRPKVdevXXZlvW2YQLNvWvmOCGYwocOnjj51H5hWlxTXcdd3wgAwGlzxdVbuzaslLZwcaUQAaKia+deOnTiqf3IZqmo8wejcJwoiN6U+pfv7rttW9toVjh+0uZBSGKI6QR/8PmJP7nv9Nlxqy1amQrfXGbADDk834eaNrETQkPG1ly/I7O23yoanlLdtE48uX/40AmuKshZFcWwPiBDElJYduf6lSuv2co1z3NNjegjR04d3bOPpGSce3pBADjDgiWB4Pdu7Pz4Ld2cYbYoHEdFuHDcJIkIF5L+578N3PXIEABE1cqcqaYzAwCw7dJt5b+rFa/++R31jTFhWmossv6NVyd6MnbRdF8MXcsOjR55fF9h1NEHnU1ct2LlOR5ARAS7aEbTqbW7dyS60pabRkySlIiWHRg59MhTVr7IHROmMi+3fMoRMIZENJEXuzcm/vStvVeujmWLwhTE/UzQgCAAIUnjmIjwZ47l/uKBs3tenWqLcQSc8arNRKdnhlfKjSor1xXDn/UQy6oa6Bxg2yXb/MpAEOGBDG3DinYk1994TbQ9aRsmzlHrHf+jro0cPulYkryqJRkWpm1pZdWuKzLrVgjDhPkqiJSKrhXGpw49/GRhbFKJaFXkBwAoDCeLQlPwd27ouv2NnZm4MtUwRcq0SEb4SM7+348Mfu2nQ4agtgiflRUwP76P6Jj0AOBY/m4hgtpkRqnlYOSo1gKUDBMztbxr3RuvViLafAFORMiQK8rpfS+ffu4V7vUZmoNSGpEtll9x6fIdm4Rtz3eEOIedXTQP//SpidODalSvzg/OUEiaKop1XfpvXJd5z86OrqSSNYRpE6JXSMAdkoCINAUTOh+asu97evSenw8fHjSSEe70UjFKF2bYpqXoWizTDgD5kXHbMLmmgrfyBIFldOPkKI0vvXr5mhuuRMbmW4+OvUqSju15dvjgCTWizViqzcsTmOvQQSSwDLNzw8rV129Hhp7jFPLoY8+MHDlZ3cQFKH3VXNGSBVOu74l86LrMO3a096RUW1DelM6ilhWScldOkzQdPOIMYxpTOA5MWPfvG7tnz8jhc8WIziIqm/WVU66BMUSraGTWrVhx9TY9GQMAYyp/8skXRo+dLkWhPYImAYFtl2wNWNL9VQRh2YmezkvfvJuknG8UODvSyhcP/+zpyTNDakSbnvGFyR+Za0NaRaOtr3vdG65SYxFXCccYQ86O/+K5gQOHVUclgjkDnl7eUiIqcoS8JYsmre7UbtycfMu29stXxpIRjgi2IEuQJHBWGgEYQ4agclQ4EsFUUTx/Iv+vz48/cmDy+LChayymMjFj/eJ07INmDwARwSqaPVvWr75+BxAI2wYArigA8MoPfzZ1bpirCklZqYDUKqixbWNAcnjUR7RNa/3N16bX9NtFY46e4eh6hdGJgw89UZyYUnSNPMPKIXLFYxIcUcXQNsxIKrnh5l3RdMpFayYCRK6pp/a+eObZl7mmgvOkQayY4XlscTLhDVvmDRnR2PoefVNvdOea+PpufVm7mtB5TC8FWPKGzBri3Lh1aKC491ju5TOFgwOGYcqoznRHWpQdl+Ue5xEDgIRhLd+5pf+qrZURCSmlGtFHj5w8+OOfz6SwVAy5JjRKDgeb3vaGaCophaj0Z5AkNaqPnzh7+GdPCcNaGPUzCEoqqq6ue8PV7St7rYLhZeKe23/wxBPPocIZY9VVkFLLCE4+R9Ei05ZAoCnYFuFxnbdFS9tmsiByhpgsCNMmANAUjGiMIbo8kcdtt5ejmCuv29677ZK5zgIixnl+Yurl+x+a21LtUGbbRbVvX0Rp2XbBwI4UCTHDbyI1qg8fPH70sb0AMO36bAmQJKYq0rIP/uQXa16/s3PDqvn+GOcAWrZ1gxrVjz62V1gWVxRfDVpOp3FEVIypCgBIooJFWcM6M+54fsG5Dh/RWExHmH5Kk0t+kKuSwVBYgnG29pZdnetdhk0AyJhdKEpbMLW0uHXPe8Vjn6q342GjIYCUcujQ8dTKXrRshwHIUI3oZ1947fgvn+eK4p5/tbggQs5J0qGfPmUVjN5tG+2iAfP5UTAy61eo8ejhR540s3muq0Eo7uTJl6MfDIkpoE1f03OmWVbJBgIvZjDLMPVEbP3Nu9p6u1wFHgCgyodfPSalLF+DrhuY3LBlziu11C79kra9/MrNfZdf6ugcJOXZ5189uXc/V6vHLBYb0zGgvu2bVly1VZiWi6dfSkXXjKn8wYd+kR0cVaNaFX7UazNWa6I0UoZWwUj2dG645XV6Mu7mRiqpSqefeenU0/uZ6i/nfIHJ9RXkqEYMb/8pAgAIy050p9t6uwFg8uxgdnCUa0qpilezC8OZ+b3PO8dtw+jZtG717h0kPAwulQtbHNuzb/jgMUXXAeZ6deefCjV8ukp7otK/WfbzAliG0bVx9erdO7nChSW8jKyjj+0deOmgomsNHSflcc0iR72NAAAiOpcTAcC5w+jC3IWxXqvAY74cDSO9ZvnaN17NFS5cXSCMMUU5tffF08+8xFSlHKWbJyzCiXqUByallJbdv/Oy/qu2Stt24S6Rw5jDj/xy9MhJNaKH8ZXcACGRo9yYM2wMeNWsomJoQ5iFQGMoFUKGVsFMLstsuOV1WjzqLrcBuK6NHDpxbM8+2zC5PtvLXveSeB4lzDZMRdfW7L6yc+Mqu+iSvuScemau8Nr/25M9N6xEddno9YSKASTXbw6rrSq9NL+LmlBtMSKp5Pqbd8U7O+a7bWDaPs8NjR15fO/UuWGllKtcNy08BoMIBLZhJJd1rb3hqnhX2t3ellKJ6LmhsYM/3uO4kUJkBtACkaMmNM6k+oWq4wJRdG3tjdd0rOzzWBLimkJCnnz6hXMvHsKSoV7rqngKV2RMWjYBLLtsw4qrtyF3z8cmKdVoZOz46cMPPWEbZvV82JrhXPhIeJCj1Tb7AoEAGUohgGD163d2b1prF92TlRBR0bXxE2eOPLa3OD6l6FpQi91bV3RufNmGGWlPrr3hqvaVfbZhuuRjO2lKEW3wwOGjP3sKEByzPJw1q7w/kVhXm+S4KEjj3OO17L7tm1ZcdZmrCQNOcEBXzXzh3AuvDR447GghOB1Rc4e34kkAwjAVXevevG7Z5ZdosahtWO5Zt4whZyeffOHMvgNMVYLcBA6KOemMibWb3AY761cQnO+kmWfeAgJYBSOzbsXaN1zNNVWYlosK4ly61NXswOiZZw+MHj1FQnJNQTbvq8E8wqqAQFIK00bO0mtW9O3YlOjJCMP9iihJ6YzkyCNPjhw6oUR94sa1wOWYw8TaS2tporaLzi3OGG9nVuk/ZGgXzVhnx/obr413pa2i4Vjtc4tL6dzlnzwzOHjg8PiJM1bRcG5nlRZ47o0sR4sl50aFGtHbV/V1b17f1tftPHlgPgsdoqkRPTc0euihX+SGx5SIT8ZJDfCSZzWSwwP1xWUWhD2Bd5a7hli+lLX6+is7N66Wli2FdPFbExEA11QELIyOj586N3b0VG5o1AmZlvLNywWnr1fFu9Ida/rb+5dF0+0EJEzLg3zkpOYPv3r02ON7bTPUKGaVaxnxUMhRDTjnd12VfVDbPJHLX1UKIyt5orouWbNq13Y1GrFNl+sOMK1tcIUzRRGWXRibKIxN5EcnzGzBKhYdp6caiWiJaCydinakoh0prirStoXt8VQSAiJSIpqVLx7/xb6hV44wVUHGwlE//dyoGF/TbHJ49bywZ06jZzMigm2Y0Y621dft6Fi9XFiWtN1ECAAQEQEyZJwjZ47CWD4CnNudRERCSiFIEqL7bJAkpjCuqmPHTh97fG9+dEKJ6I3FWWcN0rcIxtdcEkJPHo0vdO16Jq2GOsiYc6V72daNy7dvVuNRYXg+KwBgWpLQLFVt1iteT44gQgCua1a+cPqZA+deeBWwPm+KB4J96KaSw7PTBe+xjMaDUaUsLD0ZX77zsp5N6wCgygMgah5f6fETKgANHjh86un9xcks1zXAxoWf00ENZReFHL5oZJYXItSLiM7jy9pX9i3bujHV38MURZhWlTPCB9MnEddUadsTpwbO7X9t/Php5MzJzQ5n3DWqZhhffQlAyxudLYLZLiJEsE0LiNqWd/duuzTV36NEdGkLadtOHqivLHEilIjAFIUp3C4aE6cGzj7/yuTpQUDimhqehlFPBYyv8pYcS4xx4O0PcZbfeSJIvDudWb+qY1VfNJ1inBOR88DMGV/YdK5GKcWBMaZw5wJpYXRi7PiZkYPHc4OjwJCrClT3tIYzfp/SGF+1sbaeLh7GVJvTeTIEQNi2tIUa0ePd6URPZ2JZVzzToUQ05xaaU4gAYPqZM3bRzA2PZc8NZQeGc4OjVtFgCmcKd8osyKfw+1zxVRtmv93A4p/vvPGZR79pRkQEkiQsm6RkjKmxqBqLqLGoFo8gY2o0YhWKJKSZK1r5glUomrmCU5KpCjhxu3BTKmtozM27P48cVVDv4rcsaQIkC9fRaunhGwTOoyhIEpCk6WRfBADGENF5LhkglL4TIlw0IDDKqOmrQ+c3EWzZqwx0Ea69NaXCrMrTiXCIiIoy7Tafzgktd0DUFFpAowKjDKUxOTanbu2e8oXJMfYFzfoVasuV910rX25OdzXBb+nD+brycm9zfs9F7ZkATUBdXw0UZv9Vg8GLPYZKNPqN1LXBf4OWTb2m9rJIaAVaVB3GHCwsOfxB5f9dUGgRWkBtRnKrkePCQtWVaGVaOGhQIV2CB1qKFlCnV21JcoQKvzU4X2jhYIkcYaAFOeF021jHS+RoAAE25aKd2WFoC7N1jpb1c7cOgtnJi6nHhedem00O1zZbwnO16AgqohdZvQ/VvAhwrFTbKw1/X1/Losb9t/gmXxOszgZ1Drf9tMBp5SGixvldfEKU0Rx/hFJOZw5tSasPtEWo08BsthAnoFm0cKAEVLEWgjrN4E1Ic9dahHDQfO+l0oieFfJitpivtrVGMwsLFFhuSOdY9CSeENHCVKjAwu6fZjnBWpw35wcV5mDBJesieEh9P2I4D6gJo5HWwKJlJyktOI0tN6BFxKLqYUEV0iUsOBY7nXEp8NZyaIXE42kskaNl0GKWPLSmznHRofVo4WBJciwiFl+rqI5w760sIQBaSauojiVrZQHRqseHF5aOlWaj1c+OKlhSSJuG801OzMeS5Agb5z8nylgiR8M4fxTMWqGA65PqWiRfq8VxAQkJV3joHHM/Nrr+eXHB9TkbFzQCHit+1xccXGDy5kIXDL4IVedwnc3ziDEXPRvmoPkKqc+ML+zNl5Z9rktLYtE9pLX7iFzJtLTcTcB56AQ738Z7/mIp8LYET8z7LrElLGEaS+RYgicWXSFdQuviPFRIl7BQWDpWluCJ/w95wihZDqpd6AAAAABJRU5ErkJggg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#DCE4E3; --ground-2:#CFD9D8; --card:#F1F4F2;
+    --ink:#11272C; --ink-soft:#4A6067; --ink-faint:#7D9098;
+    --rule:#B6C4C3; --brass:#A8762E; --sea:#37726B; --clay:#9E4F46;
+    --shadow:rgba(17,39,44,.10);
+  }
+  :root:not([data-theme="light"]){ color-scheme:light dark; }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0C2027; --ground-2:#08181E; --card:#122B33;
+      --ink:#E4EAE6; --ink-soft:#9DB2B4; --ink-faint:#6C8489;
+      --rule:#22434C; --brass:#D2A052; --sea:#6FAFA2; --clay:#D08578;
+      --shadow:rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0C2027; --ground-2:#08181E; --card:#122B33;
+    --ink:#E4EAE6; --ink-soft:#9DB2B4; --ink-faint:#6C8489;
+    --rule:#22434C; --brass:#D2A052; --sea:#6FAFA2; --clay:#D08578;
+    --shadow:rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--ground);color:var(--ink);
+    font-family:"Karla","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+  .wrap{max-width:460px;margin:0 auto;
+    padding:calc(env(safe-area-inset-top) + 20px) 20px calc(env(safe-area-inset-bottom) + 100px)}
+  button{font-family:inherit;font-size:inherit;color:inherit;cursor:pointer}
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:4px}
+  [hidden]{display:none !important}
+
+  .meta{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    font-size:13px;letter-spacing:.02em;color:var(--ink-faint)}
+  .linkish{background:none;border:none;padding:4px 0;color:var(--ink-faint);font-size:13px;
+    text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+
+  .modeswitch{display:flex;gap:4px;margin:16px 0 0;background:var(--ground-2);padding:4px;border-radius:999px}
+  .modeswitch button{flex:1;border:none;background:none;padding:9px 6px;border-radius:999px;
+    font-size:14px;font-weight:500;color:var(--ink-faint)}
+  .modeswitch button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 2px var(--shadow)}
+
+  .phase{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto;font-weight:500;
+    font-size:clamp(30px,9.4vw,40px);line-height:1.04;letter-spacing:-.018em;margin:18px 0 0;text-wrap:balance}
+  .daymark{margin:10px 0 0;font-size:13.5px;color:var(--ink-faint)}
+  .daymark b{font-weight:600;color:var(--ink-soft)}
+  .gist{margin:13px 0 0;font-family:"Fraunces",Georgia,serif;font-size:17px;line-height:1.46;
+    font-weight:300;color:var(--ink-soft);max-width:34em}
+  .ask{margin:14px 0 0;padding:12px 14px;background:var(--card);border-radius:10px;
+    box-shadow:0 1px 0 var(--shadow);font-size:15px;line-height:1.4}
+  .ask span{display:block;font-size:12px;letter-spacing:.05em;color:var(--ink-faint);margin-bottom:5px}
+  .ask q{font-family:"Fraunces",Georgia,serif;font-style:italic;quotes:"\201C" "\201D"}
+
+  .tide{margin:18px -4px 0}
+  .tide svg{display:block;width:100%;height:auto;overflow:visible}
+  .curve{fill:none;stroke:var(--sea);stroke-width:1.6;stroke-linecap:round}
+  .fillband{fill:var(--sea);opacity:.10}
+  .nowline{stroke:var(--brass);stroke-width:1;stroke-dasharray:2 3}
+  .nowdot{fill:var(--brass)}
+  .seedot{fill:none;stroke:var(--ink);stroke-width:1.5}
+  .flagtick{stroke:var(--clay);stroke-width:2.4;stroke-linecap:round;opacity:.6}
+  .axis{stroke:var(--rule);stroke-width:1}
+  .axlabel{fill:var(--ink-faint);font-family:"Karla",sans-serif;font-size:8.5px}
+  @media (prefers-reduced-motion: no-preference){
+    .draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 1400ms cubic-bezier(.33,.9,.2,1) forwards}
+    @keyframes draw{to{stroke-dashoffset:0}}
+  }
+
+  .flag{margin:18px 0 0;padding:13px 15px;border-left:3px solid var(--clay);
+    background:color-mix(in srgb, var(--clay) 9%, transparent);
+    font-size:14.5px;color:var(--ink-soft);border-radius:0 8px 8px 0}
+  .flag b{color:var(--ink);font-weight:600}
+  .flag.calm{border-left-color:var(--sea);background:color-mix(in srgb, var(--sea) 9%, transparent)}
+  .flag.note{border-left-color:var(--brass);background:color-mix(in srgb, var(--brass) 9%, transparent)}
+
+  .ctxbar{margin:18px 0 0}
+  .ctxbar .lbl{font-size:12.5px;color:var(--ink-faint);margin-bottom:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{background:var(--card);border:1px solid var(--rule);border-radius:999px;
+    padding:7px 12px;font-size:13.5px;color:var(--ink-soft)}
+  .chip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--ground)}
+
+  .moves{margin:22px 0 0;display:flex;flex-direction:column;gap:2px}
+  .move{background:var(--card);padding:16px 16px 17px;box-shadow:0 1px 0 var(--shadow)}
+  .move:first-child{border-radius:12px 12px 2px 2px}
+  .move:last-child{border-radius:2px 2px 12px 12px}
+  .move h2{margin:0 0 7px;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:var(--ink-faint)}
+  .move p{margin:0;font-size:16.5px;line-height:1.42}
+  .move.say p{font-family:"Fraunces",Georgia,serif;font-weight:400;font-style:italic;font-size:18px;line-height:1.4}
+  .move.skip{border-left:3px solid var(--clay)}
+  .move.skip p{color:var(--ink-soft);font-size:15.5px}
+  .move.pb{border-left:3px solid var(--brass)}
+  .move.pb p{font-size:16px}
+  .move.pb .prov{margin-top:7px;font-size:12.5px;color:var(--ink-faint)}
+  .rowbtns{display:flex;gap:7px;margin-top:11px;flex-wrap:wrap}
+  .pill{background:none;border:1px solid var(--rule);border-radius:999px;padding:5px 13px;
+    font-size:12.5px;color:var(--ink-soft)}
+  .pill[data-on="1"]{border-color:var(--sea);color:var(--sea)}
+  .why{margin:9px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.45;
+    padding:11px 13px;background:var(--ground-2);border-radius:9px}
+
+  .rate{margin:18px 0 0;padding:14px 16px;background:var(--card);border-radius:12px;box-shadow:0 1px 0 var(--shadow)}
+  .rate p{margin:0 0 10px;font-size:13.5px;color:var(--ink-faint)}
+  .rate .rowbtns{margin:0}
+  .rate .pill{padding:7px 14px;font-size:13.5px}
+  .rate .pill[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--ground)}
+  .shuffle{margin:12px 0 0;background:none;border:none;padding:6px 0;font-size:13px;color:var(--ink-faint);
+    text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+
+  .sect-h{margin:30px 0 0;padding-bottom:8px;border-bottom:1px solid var(--rule);
+    display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .sect-h h2{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:21px;letter-spacing:-.01em}
+  .sect-h span{font-size:12.5px;color:var(--ink-faint);text-align:right}
+  .view > .sect-h:first-child{margin-top:16px}
+
+  .week{display:flex;gap:4px;margin:14px 0 0}
+  .day{flex:1;text-align:center;padding:8px 1px 9px;border-radius:9px;background:var(--card);box-shadow:0 1px 0 var(--shadow)}
+  .day .dow{font-size:10.5px;color:var(--ink-faint)}
+  .day .bar{height:26px;margin:6px auto 5px;width:4px;border-radius:2px;background:var(--rule);position:relative}
+  .day .bar i{position:absolute;bottom:0;left:0;right:0;border-radius:2px;background:var(--sea)}
+  .day.rough .bar i{background:var(--clay)}
+  .day .n{font-size:11px;color:var(--ink-faint)}
+  .day.today{outline:1.5px solid var(--brass)}
+  .day.today .n{color:var(--brass);font-weight:600}
+  .day.see{outline:1.5px solid var(--ink)}
+
+  .panel{margin:14px 0 0;padding:17px;background:var(--card);border-radius:12px;box-shadow:0 1px 0 var(--shadow)}
+  .panel h3{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:19px}
+  .panel .big{font-family:"Fraunces",Georgia,serif;font-size:32px;font-weight:500;letter-spacing:-.02em;
+    line-height:1.06;margin:4px 0 0}
+  .panel p{margin:9px 0 0;font-size:15px;color:var(--ink-soft);line-height:1.45}
+  .panel .sub{font-size:13px;color:var(--ink-faint);margin-top:5px}
+
+  .stack{list-style:none;margin:12px 0 0;padding:0}
+  .stack li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--rule);font-size:14.5px}
+  .stack li:last-child{border-bottom:none}
+  .stack .when{min-width:74px;color:var(--ink-faint);font-size:13px;padding-top:1px}
+  .stack .good{color:var(--sea);font-weight:500}
+  .stack .bad{color:var(--clay);font-weight:500}
+
+  .stats{margin:12px 0 0;font-size:14px;color:var(--ink-soft)}
+  .stats div{padding:9px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:10px}
+  .stats div:last-child{border-bottom:none}
+  .stats b{font-weight:500;color:var(--ink)}
+  .btn{width:100%;margin:14px 0 0;padding:15px;border:none;border-radius:12px;background:var(--ink);
+    color:var(--ground);font-size:16px;font-weight:600;letter-spacing:.01em}
+  .btn.secondary{background:none;border:1px solid var(--rule);color:var(--ink-soft);font-weight:500;
+    font-size:14.5px;padding:12px}
+  .hist ul{list-style:none;margin:8px 0 0;padding:0;font-size:13.5px;color:var(--ink-faint)}
+  .hist li{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--rule)}
+  .hist button{background:none;border:none;color:var(--clay);font-size:12.5px;padding:2px 0}
+  .empty{margin:14px 0 0;font-size:14.5px;color:var(--ink-faint);line-height:1.45}
+  .footnote{margin:26px 0 0;padding-top:16px;border-top:1px solid var(--rule);font-size:13px;
+    line-height:1.5;color:var(--ink-faint)}
+
+  /* playbook */
+  .cat{margin:16px 0 0}
+  .cat h3{margin:0 0 2px;font-size:13px;font-weight:600;letter-spacing:.03em;color:var(--ink-faint)}
+  .ent{padding:12px 14px;background:var(--card);border-radius:10px;margin-top:6px;
+    box-shadow:0 1px 0 var(--shadow);display:flex;gap:11px;align-items:flex-start}
+  .ent .body{flex:1;min-width:0}
+  .ent .txt{font-size:15.5px;line-height:1.42}
+  .ent .sub{margin-top:5px;font-size:12px;color:var(--ink-faint)}
+  .ent .obs{color:var(--brass)}
+  .ent .x{background:none;border:none;color:var(--ink-faint);font-size:15px;padding:0 2px;line-height:1}
+  .searchbox{margin:14px 0 0}
+  .nudge{margin:14px 0 0;padding:13px 15px;border-left:3px solid var(--brass);
+    background:color-mix(in srgb, var(--brass) 9%, transparent);border-radius:0 8px 8px 0;
+    font-size:14.5px;color:var(--ink-soft);line-height:1.45}
+  .nudge b{color:var(--ink);font-weight:600}
+
+  .tabs{position:fixed;left:0;right:0;bottom:0;z-index:10;
+    background:color-mix(in srgb, var(--ground) 92%, transparent);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-top:1px solid var(--rule);padding:6px 0 calc(env(safe-area-inset-bottom) + 6px)}
+  .tabs div{max-width:460px;margin:0 auto;display:flex}
+  .tabs button{flex:1;background:none;border:none;padding:8px 2px;font-size:11.5px;color:var(--ink-faint)}
+  .tabs button[aria-selected="true"]{color:var(--ink);font-weight:600}
+  .tabs button span{display:block;font-size:17px;line-height:1.2;margin-bottom:2px}
+
+  .fab{position:fixed;right:16px;bottom:calc(env(safe-area-inset-bottom) + 74px);z-index:11;
+    border:none;border-radius:999px;background:var(--ink);color:var(--ground);
+    padding:13px 18px;font-size:14.5px;font-weight:600;box-shadow:0 4px 14px var(--shadow)}
+
+  .sheet{position:fixed;inset:0;background:var(--ground);z-index:30;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .sheet h1{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:27px;letter-spacing:-.015em;margin:0 0 6px}
+  .sheet p.lede{margin:0 0 20px;color:var(--ink-soft);font-size:15px;max-width:32em}
+  label{display:block;margin:18px 0 0;font-size:13.5px;color:var(--ink-faint)}
+  input[type=text],input[type=date],input[type=number],input[type=search],textarea{
+    width:100%;margin-top:7px;padding:12px 13px;font-family:inherit;font-size:16px;
+    background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:10px;
+    -webkit-appearance:none;appearance:none}
+  textarea{min-height:96px;resize:vertical;line-height:1.45}
+  .hint{margin-top:6px;font-size:12.5px;color:var(--ink-faint);display:block;line-height:1.45}
+  .err{color:var(--clay);font-size:13.5px;margin-top:12px}
+  .danger{background:none;border:none;color:var(--clay);font-size:13.5px;padding:10px 0;
+    text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+  .kindsw{display:flex;gap:4px;margin-top:9px;background:var(--ground-2);padding:4px;border-radius:10px}
+  .kindsw button{flex:1;border:none;background:none;padding:10px 6px;border-radius:7px;font-size:14px;color:var(--ink-faint)}
+  .kindsw button[aria-pressed="true"]{background:var(--card);color:var(--ink);font-weight:600;box-shadow:0 1px 2px var(--shadow)}
+</style>
+</head>
+<body>
+
+<main class="wrap" id="app" hidden>
+
+  <!-- ============ TODAY ============ -->
+  <section class="view" id="v-today">
+    <div class="meta">
+      <span id="today-date"></span>
+      <button class="linkish" id="open-settings">Setup</button>
+    </div>
+
+    <div class="modeswitch" role="group" aria-label="Are you together today">
+      <button id="m-together" aria-pressed="false">Together today</button>
+      <button id="m-apart" aria-pressed="false">Apart</button>
+    </div>
+
+    <h1 class="phase" id="phase-name"></h1>
+    <p class="daymark" id="day-mark"></p>
+    <p class="gist" id="gist"></p>
+
+    <div class="ask" id="askbox">
+      <span>Ask, don't assume</span>
+      <q id="ask-q"></q>
+    </div>
+
+    <div class="tide" id="tide"></div>
+    <div class="flag" id="flag" hidden></div>
+
+    <div class="ctxbar">
+      <div class="lbl">Anything going on today? Clears itself tomorrow.</div>
+      <div class="chips" id="ctx-chips" role="group" aria-label="Today's context"></div>
+    </div>
+
+    <div class="moves">
+      <section class="move pb" id="pb-card" hidden>
+        <h2 id="h-pb">From your playbook</h2>
+        <p id="c-pb"></p>
+        <div class="prov" id="c-pb-sub"></div>
+      </section>
+      <section class="move do">
+        <h2 id="h-do">Do</h2>
+        <p id="c-do"></p>
+        <div class="rowbtns"><button class="pill" id="why-btn">Why this?</button></div>
+        <div class="why" id="why-txt" hidden></div>
+      </section>
+      <section class="move say">
+        <h2 id="h-say">Open with</h2>
+        <p id="c-say"></p>
+        <div class="prov">An opening, not a script. Say it your way.</div>
+        <div class="rowbtns"><button class="pill" id="copy-say">Copy</button></div>
+      </section>
+      <section class="move skip">
+        <h2>Skip</h2>
+        <p id="c-skip"></p>
+      </section>
+    </div>
+
+    <div class="nudge" id="learn" hidden>
+      <b>Learned anything about her lately?</b>
+      <div class="rowbtns">
+        <button class="pill" id="learn-go">Add something</button>
+        <button class="pill" id="learn-later">Not today</button>
+      </div>
+    </div>
+
+    <div class="rate" id="rate">
+      <p>Did this land? The app learns from it.</p>
+      <div class="rowbtns" role="group" aria-label="Rate this brief">
+        <button class="pill" data-r="4" aria-pressed="false">Nailed it</button>
+        <button class="pill" data-r="3" aria-pressed="false">Helped</button>
+        <button class="pill" data-r="2" aria-pressed="false">Neutral</button>
+        <button class="pill" data-r="1" aria-pressed="false">Don't suggest again</button>
+      </div>
+    </div>
+    <button class="shuffle" id="shuffle">Show me a different set</button>
+
+    <p class="footnote">
+      Cycle phase is context, not a readout of how she feels. Averages across many people say
+      nothing certain about one person on one day, so ask her rather than trusting the app.
+      Everything here stays on this phone.
+    </p>
+  </section>
+
+  <!-- ============ AHEAD ============ -->
+  <section class="view" id="v-ahead" hidden>
+    <div class="sect-h"><h2>Next time together</h2><span id="see-note"></span></div>
+    <div class="panel" id="see-panel"></div>
+
+    <div class="sect-h"><h2>Coming up</h2><span>saved dates</span></div>
+    <ul class="stack" id="dates-up"></ul>
+
+    <div class="sect-h"><h2>Two weeks out</h2><span id="fort-note"></span></div>
+    <div class="week" id="week-1"></div>
+    <div class="week" id="week-2" style="margin-top:5px"></div>
+
+    <div class="sect-h"><h2>Timing a real conversation</h2><span>next 21 days</span></div>
+    <ul class="stack" id="talk"></ul>
+    <p class="footnote">
+      Good days are not permission slips and bad days are not excuses. If something is urgent,
+      raise it when it needs raising. This is only for things that can wait a few days without cost.
+    </p>
+  </section>
+
+  <!-- ============ PLAYBOOK ============ -->
+  <section class="view" id="v-play" hidden>
+    <div class="sect-h"><h2>Playbook</h2><span id="pb-count"></span></div>
+    <div class="nudge" id="pb-nudge" hidden></div>
+    <div class="searchbox">
+      <input type="search" id="pb-search" placeholder="Search everything you've saved" autocomplete="off">
+    </div>
+    <div id="pb-list"></div>
+    <p class="footnote">
+      Things she told you are kept as facts. Things you noticed are kept as observations and
+      stay that way, because a pattern you spotted is a question worth asking, not a
+      conclusion about her. Tap any entry to fix it.
+    </p>
+    <p class="footnote" style="border:none;padding-top:0">
+      The fuller this gets, the more of each daily brief comes from her rather than from the
+      app's general guidance. That's the point: the generic advice is scaffolding, and it
+      should matter less over time, not more.
+    </p>
+  </section>
+
+  <!-- ============ CYCLE ============ -->
+  <section class="view" id="v-cycle" hidden>
+    <div class="sect-h"><h2>Her cycle</h2><span id="src-note"></span></div>
+    <div class="stats" id="stats"></div>
+    <button class="btn" id="log-today">Her period started today</button>
+    <button class="btn secondary" id="log-other">Log a different start date</button>
+    <div class="hist" id="hist"></div>
+
+    <div class="sect-h"><h2>What works with her</h2><span id="wins-note"></span></div>
+    <div id="wins"></div>
+
+    <div class="sect-h"><h2>Your data</h2><span>on this phone only</span></div>
+    <button class="btn secondary" id="export">Copy all my data as text</button>
+    <p class="footnote">
+      Nothing here is uploaded anywhere. Copying gives you the whole store as JSON so you can
+      paste it somewhere safe, which is also the only backup that exists right now.
+    </p>
+  </section>
+</main>
+
+<button class="fab" id="fab" hidden>Remember this</button>
+
+<nav class="tabs" id="tabs" hidden>
+  <div role="tablist" aria-label="Sections">
+    <button role="tab" data-v="today" aria-selected="true"><span>◒</span>Today</button>
+    <button role="tab" data-v="ahead" aria-selected="false"><span>◔</span>Ahead</button>
+    <button role="tab" data-v="play" aria-selected="false"><span>◈</span>Playbook</button>
+    <button role="tab" data-v="cycle" aria-selected="false"><span>◍</span>Cycle</button>
+  </div>
+</nav>
+
+<!-- ============ CAPTURE ============ -->
+<div class="sheet" id="cap" hidden>
+  <div class="wrap" style="padding-bottom:50px">
+    <div class="meta" style="margin-bottom:18px">
+      <span>Remember this</span>
+      <button class="linkish" id="cap-close">Close</button>
+    </div>
+    <h1 id="cap-title">What happened?</h1>
+    <p class="lede">Write it how you'd say it. Tap the microphone on your keyboard if talking is faster.</p>
+
+    <textarea id="cap-text" placeholder="She mentioned she loves LEGO flower sets."></textarea>
+
+    <label>Where did this come from?</label>
+    <div class="kindsw" role="group" aria-label="Where this came from">
+      <button id="k-stated" aria-pressed="true">She told me</button>
+      <button id="k-observed" aria-pressed="false">I saw it</button>
+      <button id="k-inferred" aria-pressed="false">I think</button>
+    </div>
+    <span class="hint" id="kind-hint">Things she said. Kept as stated.</span>
+
+    <label>When did this happen?
+      <input type="date" id="cap-when">
+      <span class="hint">Defaults to today. Change it if you're logging something
+        from earlier, so it gets stamped with the right cycle day.</span>
+    </label>
+
+    <label>Filed under <span class="hint" style="display:inline">tap to change</span></label>
+    <div class="chips" id="cap-cats" role="group" aria-label="Categories"></div>
+
+    <label id="date-wrap" hidden>Date
+      <input type="date" id="cap-date">
+      <span class="hint">Repeats every year.</span>
+    </label>
+
+    <p class="err" id="cap-err" hidden></p>
+    <button class="btn" id="cap-save">Save</button>
+    <button class="btn secondary" id="cap-date-toggle">This is a date to remember</button>
+  </div>
+</div>
+
+<!-- ============ SETUP ============ -->
+<div class="sheet" id="sheet" hidden>
+  <div class="wrap" style="padding-bottom:60px">
+    <div class="meta" style="margin-bottom:18px">
+      <span id="sheet-eyebrow">First run</span>
+      <button class="linkish" id="close-settings" hidden>Close</button>
+    </div>
+    <h1 id="sheet-title">Set up Tide</h1>
+    <p class="lede" id="sheet-lede">The date is the part that matters, so get it from her rather than guessing.</p>
+
+    <label>Her name
+      <input type="text" id="f-name" placeholder="First name" autocomplete="off" spellcheck="false">
+    </label>
+
+    <label>First day of her most recent period
+      <input type="date" id="f-start">
+      <span class="hint">Day one is the first day of real bleeding.</span>
+    </label>
+
+    <label>Typical cycle length
+      <input type="number" id="f-len" min="21" max="45" step="1" value="28">
+      <span class="hint">28 is a fine starting guess. Tide works out the real number once you've
+        logged two or more.</span>
+    </label>
+
+    <label>Next time you'll see her
+      <input type="date" id="f-see">
+      <span class="hint">Drives the reunion planner. Leave blank if you live together.</span>
+    </label>
+
+    <label>What lands best with her</label>
+    <div class="chips" id="f-ll" role="group" aria-label="What lands best with her">
+      <button class="chip" data-ll="touch" aria-pressed="false">Touch</button>
+      <button class="chip" data-ll="words" aria-pressed="false">Words</button>
+      <button class="chip" data-ll="time" aria-pressed="false">Time together</button>
+      <button class="chip" data-ll="acts" aria-pressed="false">Acts of service</button>
+      <button class="chip" data-ll="gifts" aria-pressed="false">Small gifts</button>
+    </div>
+    <span class="hint">Shapes the Do suggestions. Change it whenever.</span>
+
+    <p class="err" id="f-err" hidden></p>
+    <button class="btn" id="f-save">Save</button>
+    <button class="danger" id="f-reset" hidden>Erase everything and start over</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ================================================================
+     STORE  (schema 3)
+     {
+       schema: 3,
+       user:    { name },
+       partner: { name, pronoun },          // USER -> PARTNER, not MAN -> WOMAN
+       cycle:   { starts:[iso], len, lenManual },
+       prefs:   { love, see },
+       entries: [ { id, type, kind, source, text, cats[], date,
+                    occurred, created, confirmed, day, phase } ],
+                  // type:   memory | date | context
+                  // source: partner | user | system   (WHO asserted it)
+                  // kind:   stated | observed | inferred | derived   (HOW)
+                  // occurred: when it HAPPENED (day/phase are stamped from this,
+                  //           not from the save date, or the record is wrong)
+                  // confirmed: date she verified an observation, else null.
+                  //            An observation is never rewritten into a fact:
+                  //            guessed-then-checked is worth more than either alone.
+       feedback:{ contentId: 1..4 },        // keyed by STABLE STRUCTURAL id, not text
+       log:     [ { d, r, id } ],
+       modeOverride: { d, apart }
+     }
+     Content ids are derived from position in the library: phase|mode|bucket|index.
+     APPEND to those arrays, never reorder, or existing feedback points at the
+     wrong line.
+     ================================================================ */
+  var KEY = "tide.v4", OLD3 = "tide.v3", OLD2 = "tide.v2", OLD1 = "tide.v1";
+
+  function blank(){
+    return {
+      schema:4, user:{name:""}, partner:{name:"", pronoun:"she"},
+      cycle:{starts:[], len:28, lenManual:true},
+      prefs:{love:"time", see:""},
+      entries:[], feedback:{}, log:[], modeOverride:null
+    };
+  }
+
+  // v3 -> v4: split the single kind flag into source (who asserted it) and
+  // kind (how), so a future system-derived inference can never be mistaken for
+  // something she said. Backfill occurred from created.
+  function migrate3(old){
+    var d = JSON.parse(JSON.stringify(old));
+    d.schema = 4;
+    d.entries = (d.entries||[]).map(function(e){
+      if(e.type === "context") return e;
+      var stated = e.kind === "fact" || e.kind === "stated";
+      e.source = stated ? "partner" : "user";
+      e.kind = stated ? "stated" : "observed";
+      e.occurred = e.occurred || e.created;
+      if(e.confirmed === undefined) e.confirmed = null;
+      return e;
+    });
+    return d;
+  }
+
+  function migrate(old){
+    // v1/v2 were flat. Lift into the v3 shape and keep every rating by
+    // re-keying text hashes onto the new structural ids.
+    var d = blank();
+    d.partner.name = old.name || "";
+    d.cycle.starts = (old.starts || []).slice();
+    d.cycle.len = old.len || 28;
+    d.cycle.lenManual = !!old.lenManual;
+    d.prefs.love = old.ll || "time";
+    d.prefs.see = old.see || "";
+    d.log = (old.log || []).map(function(e){ return {d:e.d, r:e.r === 3 ? 4 : e.r, id:null}; });
+    if(old.fb){
+      eachContent(function(id, text){
+        var h = hash(text);
+        if(old.fb[h] != null){
+          var r = old.fb[h];
+          d.feedback[id] = r === 3 ? 4 : r;   // old 3-point -> new 4-point
+        }
+      });
+    }
+    if(old.notes && old.notes.trim()){
+      d.entries.push({
+        id:uid(), type:"memory", source:"partner", kind:"stated", text:old.notes.trim(),
+        cats:["Other"], created:iso(today()), occurred:iso(today()),
+        confirmed:null, day:null, phase:null
+      });
+    }
+    return d;
+  }
+
+  function load(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      if(raw){
+        var d = JSON.parse(raw);
+        if(d && d.schema === 4 && d.cycle && d.cycle.starts.length) return d;
+        if(d && d.schema === 3 && d.cycle && d.cycle.starts.length){
+          var up = migrate3(d); save(up); return up;
+        }
+      }
+      var v3 = localStorage.getItem(OLD3);
+      if(v3){
+        var o3 = JSON.parse(v3);
+        if(o3 && o3.cycle && o3.cycle.starts && o3.cycle.starts.length){
+          var m3 = migrate3(o3); save(m3); return m3;
+        }
+      }
+      var legacy = localStorage.getItem(OLD2) || localStorage.getItem(OLD1);
+      if(legacy){
+        var o = JSON.parse(legacy);
+        if(o && Array.isArray(o.starts) && o.starts.length){
+          var m = migrate3(migrate(o)); save(m); return m;
+        }
+      }
+    }catch(e){}
+    return null;
+  }
+  function save(d){ try{ localStorage.setItem(KEY, JSON.stringify(d)); }catch(e){} }
+  function uid(){ return "e" + Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+
+  /* ================= dates ================= */
+  function iso(dt){
+    return dt.getFullYear()+"-"+String(dt.getMonth()+1).padStart(2,"0")+"-"+String(dt.getDate()).padStart(2,"0");
+  }
+  function parseISO(s){ var p=String(s).split("-"); return new Date(+p[0], +p[1]-1, +p[2]); }
+  function today(){ var n=new Date(); return new Date(n.getFullYear(),n.getMonth(),n.getDate()); }
+  function daysBetween(a,b){ return Math.round((b-a)/86400000); }
+  function addDays(dt,n){ var d=new Date(dt.getTime()); d.setDate(d.getDate()+n); return d; }
+  function pretty(dt){ return dt.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"}); }
+  function shortDate(dt){ return dt.toLocaleDateString(undefined,{month:"short",day:"numeric"}); }
+  function dowShort(dt){ return dt.toLocaleDateString(undefined,{weekday:"short"}); }
+
+  /* ================= cycle ================= */
+  function avgLength(starts, fallback){
+    if(starts.length < 2) return fallback;
+    var s = starts.slice().sort(), gaps = [];
+    for(var i=Math.max(1,s.length-6); i<s.length; i++){
+      var g = daysBetween(parseISO(s[i-1]), parseISO(s[i]));
+      if(g >= 18 && g <= 50) gaps.push(g);
+    }
+    if(!gaps.length) return fallback;
+    return Math.round(gaps.reduce(function(a,b){return a+b;},0)/gaps.length);
+  }
+  function phaseFor(day, len){
+    var ov = Math.max(10,len-14), bleed = len <= 24 ? 4 : 5;
+    if(day <= bleed) return "menstrual";
+    if(day < ov-2) return "follicular";
+    if(day <= ov+1) return "fertile";
+    if(day <= len-5) return "luteal";
+    return "premenstrual";
+  }
+  function lerp(x,x0,x1,y0,y1){
+    if(x1 <= x0) return y0;
+    var t = Math.min(1,Math.max(0,(x-x0)/(x1-x0)));
+    return y0+(y1-y0)*t;
+  }
+  function energyFor(day,len){
+    var p = phaseFor(day,len), ov = Math.max(10,len-14), bleed = len <= 24 ? 4 : 5;
+    switch(p){
+      case "menstrual":  return lerp(day,1,bleed,.26,.44);
+      case "follicular": return lerp(day,bleed+1,ov-3,.46,.84);
+      case "fertile":    return lerp(day,ov-2,ov+1,.90,.97);
+      case "luteal":     return lerp(day,ov+2,len-5,.82,.48);
+      default:           return lerp(day,len-4,len,.38,.20);
+    }
+  }
+  function isRough(day,len){
+    var p = phaseFor(day,len);
+    return p === "premenstrual" || (p === "menstrual" && day <= 2);
+  }
+  function dayOn(dt, st){
+    var e = daysBetween(st.last, dt);
+    return ((e % st.len)+st.len)%st.len + 1;
+  }
+  function state(d){
+    var starts = d.cycle.starts.slice().sort();
+    var last = parseISO(starts[starts.length-1]);
+    var len = d.cycle.lenManual ? (d.cycle.len || 28) : avgLength(starts, d.cycle.len || 28);
+    var elapsed = daysBetween(last, today());
+    var cs = Math.floor(elapsed/len);
+    return {starts:starts, last:last, len:len, learned:starts.length >= 2,
+      day:((elapsed%len)+len)%len + 1, elapsed:elapsed, stale:elapsed > len+9,
+      cyclesSince:cs, nextStart:addDays(last,(cs+1)*len)};
+  }
+
+  /* ================= content =================
+     Phrasing rule for everything below: describe what is common across people,
+     never assert what she feels. Every phase carries a question so the app
+     points at asking rather than concluding. */
+  var C = {
+    menstrual:{
+      title:"Comfort over energy",
+      gist:[
+        "Many people have less energy and more pain in the first days of bleeding. Whether that's her today is worth asking, not assuming.",
+        "This is commonly the heaviest stretch of the month. Carrying more than your half is a safe bet either way.",
+        "Comfort tends to land better than ambition around now. She may feel completely fine, so let her tell you."
+      ],
+      ask:"Would you rather have company tonight or the place to yourself?",
+      why:"Iron and energy are often at their lowest in the first days of bleeding, and cramping is common. That's an average across a lot of people, not a reading on her.",
+      plan:"Commonly a low-energy stretch. Plan indoors with food handled and an early option, then follow her lead when you get there.",
+      together:{
+        do:{
+          touch:["Offer a heat pack and a back rub, and let her say no without it being a thing.",
+                 "Sit close and let her be quiet against you without filling the silence."],
+          words:["Tell her she doesn't have to be at her best around you.",
+                 "Say one specific thing you appreciate about her, unprompted."],
+          time:["Offer the cleared evening: dim lights, something she's already seen, no plans.",
+                "Be in the same room doing nothing in particular. Company without demand."],
+          acts:["Handle dinner and the dishes before she has to ask.",
+                "Take one thing off her list and tell her it's already done."],
+          gifts:["Bring home her comfort food, the specific one, not a healthy version.",
+                 "Restock whatever she's running low on without making it a conversation."]
+        },
+        say:["What would actually help right now, {name}? I'll go handle it.",
+             "I've got tonight. Tell me what you don't want to think about.",
+             "Anything you want me to pick up on the way home?"],
+        skip:["Booking anything that runs late or needs stamina without checking first.",
+              "Serious conversations that can wait a week.",
+              "Making her decide things. Offer a plan and let her edit it."]
+      },
+      apart:{
+        do:{
+          touch:["Send a voice note instead of a text so she hears you rather than reads you.",
+                 "Tell her the first thing you're doing when you see her is holding her for a minute."],
+          words:["Send one specific thing you appreciated about her this week. No ask attached.",
+                 "Thirty second voice note. Warm, short, nothing she has to answer."],
+          time:["Offer a short video call and tell her it's fine to keep it short.",
+                "Watch the same thing at the same time tonight, no pressure to talk."],
+          acts:["Order dinner to her place so she doesn't have to think about food.",
+                "Handle something on her list you can do from here: an order, a booking, a call."],
+          gifts:["Have her comfort snack or her tea delivered.",
+                 "Send heat patches and painkillers so she has them before she needs them."]
+        },
+        say:["How's today going, {name}? Tell me what I can send you.",
+             "No reply needed if you're not up to it. Just checking on you.",
+             "What do you need? I can get it delivered.",
+             "Want me to call, or would you rather just be left alone tonight?"],
+        skip:["Long text threads that take energy to keep up with.",
+              "Asking her to make plans or decisions from here.",
+              "Reading short replies as coldness. Short isn't distant."]
+      }
+    },
+
+    follicular:{
+      title:"Energy on the way up",
+      gist:[
+        "Energy commonly climbs after bleeding ends. Good stretch to float plans and see what she's up for.",
+        "For a lot of people this is the most open-to-new-things part of the month. Worth testing rather than assuming.",
+        "If there's something you've both been putting off, this is usually a good window to raise it."
+      ],
+      ask:"Anything you've been wanting to do that we keep not doing?",
+      why:"Estrogen rises through this phase, which for many people tracks with more energy and more appetite for novelty. Individual experience varies a lot.",
+      plan:"Often an energetic stretch. Reasonable time to book something real rather than defaulting to the couch, if she's up for it.",
+      together:{
+        do:{
+          touch:["Be more physical in passing: a hand on her back, a hug that lasts a beat longer.",
+                 "Float something active together, a walk or a swim."],
+          words:["Tell her something specific you admire about how she handled this week.",
+                 "Ask about the thing she's excited about and actually dig in."],
+          time:["Propose the thing you've both been saying you should do, and pick the date.",
+                "Try somewhere new instead of the usual spot."],
+          acts:["Help move one of her own projects forward instead of just cheering it on.",
+                "Set up whatever she needs for the plan she keeps mentioning."],
+          gifts:["Pick up something tied to a plan you're making together.",
+                 "Small surprise, no occasion."]
+        },
+        say:["{name}, what have we been meaning to do that we keep not doing?",
+             "Tell me about the thing you're working on. The whole thing.",
+             "Want me to plan something for the weekend, or would you rather keep it open?"],
+        skip:["Cancelling plans at the last minute.",
+              "Sitting on a decision you've been putting off.",
+              "Defaulting to the low-key version without asking."]
+      },
+      apart:{
+        do:{
+          touch:["Say one specific thing you're looking forward to when you see her.",
+                 "Keep the flirting alive by text. Distance isn't a reason to get polite."],
+          words:["Ask about her project and follow up on the exact detail she mentioned last time.",
+                 "Tell her what you've been bragging about her for."],
+          time:["Lock in the plan for when you see each other and send her the confirmation.",
+                "Set a real call rather than trading texts all day."],
+          acts:["Book the reservation so there's nothing left for her to arrange.",
+                "Sort one piece of logistics for her week from here."],
+          gifts:["Send something small that points at the plan you're making together.",
+                 "Order the thing she mentioned wanting and say nothing until it arrives."]
+        },
+        say:["What's got you excited this week, {name}? I want to hear about it.",
+             "Anything you want to do when I'm back? I'll sort it out.",
+             "What was the best part of your day?",
+             "Booked it. You don't have to do anything but show up."],
+        skip:["Being vague about when you'll see her.",
+              "Letting it run on autopilot: how was your day, good, you?",
+              "Saving your energy for when you're in the same room."]
+      }
+    },
+
+    fertile:{
+      title:"Often the high point",
+      gist:[
+        "Around ovulation many people report their highest energy and most social stretch. Test it, don't assume it.",
+        "Commonly the easiest week to make plans stick. Good time to ask for the bigger night out.",
+        "If she's ever up for spontaneity, statistically it's now. She's still the one who decides."
+      ],
+      ask:"What sounds good this week, out somewhere or just us?",
+      why:"Estrogen peaks around ovulation. Many people describe feeling most social and energetic here, and plenty notice nothing in particular.",
+      plan:"Often a high-energy, social stretch. Reasonable to aim higher than a quiet night in, with a fallback ready.",
+      together:{
+        do:{
+          touch:["Initiate. Flirt like you did early on rather than waiting for a signal.",
+                 "Make contact deliberate, not functional: hands, hair, a real kiss goodbye."],
+          words:["Say the specific, unmistakable version of the compliment, not the safe one.",
+                 "Tell her you're glad to be out with her, out loud, in front of people."],
+          time:["Propose the night out. Friends, music, somewhere with some energy.",
+                "Say yes to the spontaneous idea even if you're tired."],
+          acts:["Handle every logistic so she can just show up and enjoy it.",
+                "Plan the whole evening start to finish and surprise her with it."],
+          gifts:["Something a bit indulgent, chosen for her specifically.",
+                 "Flowers on an ordinary Tuesday, with no reason given."]
+        },
+        say:["Are you up for going out, {name}, or is that too much this week?",
+             "What sounds fun right now? I'll make it happen.",
+             "Tell me the best thing that happened to you today."],
+        skip:["Defaulting to a night in without offering the alternative.",
+              "Waiting for her to make the first move.",
+              "Being vague about plans. Decide and drive."]
+      },
+      apart:{
+        do:{
+          touch:["Say the thing you're actually thinking.",
+                 "Call instead of texting. Your voice does more than words on a screen."],
+          words:["Send the compliment you'd be slightly embarrassed to say out loud.",
+                 "Tell her exactly what you miss, specifically, not generally."],
+          time:["Set a proper call tonight, not a five minute check-in.",
+                "Make a plan for the reunion she'd tell her friends about."],
+          acts:["Arrange the whole first night so she has to organise nothing.",
+                "Send her the itinerary. Let her look forward to it all week."],
+          gifts:["Send flowers to where she actually is, not to the house.",
+                 "Order the indulgent version of what she'd buy for herself."]
+        },
+        say:["Free tonight, {name}? I'd rather hear your voice than type.",
+             "What do you want to do first when I get there?",
+             "How's your week going? Give me the long version.",
+             "Anything you want me to book before I'm back?"],
+        skip:["Going quiet.",
+              "Keeping it strictly logistical. Admin isn't connection.",
+              "Short replies when she's reaching out."]
+      }
+    },
+
+    luteal:{
+      title:"Steady, then slowing",
+      gist:[
+        "After ovulation many people prefer routine over surprises. Steady is a safe default.",
+        "Commonly a fine stretch early and a thinner one later. Predictability costs you nothing either way.",
+        "Patience is cheap insurance this week. It says nothing about what kind of day she's having."
+      ],
+      ask:"What's on your plate this week? Anything I can take off it?",
+      why:"Progesterone rises after ovulation. Many people report preferring the familiar and predictable in this stretch, though experience varies widely.",
+      plan:"Often steady but tapering. Familiar tends to beat ambitious. Pick the place you both already like.",
+      together:{
+        do:{
+          touch:["Long hug when you first see her, before anything gets discussed.",
+                 "Low-key closeness: feet on your lap, sitting shoulder to shoulder."],
+          words:["Name one thing she carried this week that nobody else noticed.",
+                 "Reassure her without being asked. Say the thing she'd like to hear twice."],
+          time:["Protect one unhurried evening at home and defend it from everything else.",
+                "Cook together with music on. Familiar and easy."],
+          acts:["Do the chore she hates before she gets to it.",
+                "Take over one recurring thing this week so her load is lighter."],
+          gifts:["Bring home the snack she keeps mentioning.",
+                 "Something practical that makes her week easier."]
+        },
+        say:["What's on your plate this week, {name}? I want to take something off it.",
+             "Want to keep tonight simple? I'll cook, you pick what we watch.",
+             "Is there anything I've been missing lately?"],
+        skip:["Springing changes on her late in the day.",
+              "Adding a new commitment to the calendar without asking.",
+              "Debating something small into something big. Let it go."]
+      },
+      apart:{
+        do:{
+          touch:["Be consistent rather than intense. Same time, same warmth, every day.",
+                 "Tell her plainly that you miss her. No joke attached to soften it."],
+          words:["Send reassurance before she needs to ask for it.",
+                 "Recognise something specific she's carrying this week."],
+          time:["Set a predictable check-in time and keep it. Reliability is the gift.",
+                "Short call at the same hour beats a long one at a random hour."],
+          acts:["Take one recurring task off her week from where you are.",
+                "Send her the reminder she'd otherwise forget, quietly."],
+          gifts:["Have her groceries or her snack delivered mid-week.",
+                 "Something practical that makes her next few days easier."]
+        },
+        say:["Checking in, not checking up. How's the week treating you, {name}?",
+             "What's on your plate this week? Anything I can take from here?",
+             "Same time tomorrow? I'll call.",
+             "I'm keeping the first evening clear. Anything you want to do with it?"],
+        skip:["Breaking a check-in rhythm you've set.",
+              "Raising anything unresolved over text.",
+              "Disappearing into your own week without a word."]
+      }
+    },
+
+    premenstrual:{
+      title:"Lower the stakes",
+      gist:[
+        "Some people find patience and reserves are thinner in the last days before bleeding. Some notice nothing at all.",
+        "This is a cheap week to be gentle and slow on your own half, whatever kind of day she's actually having.",
+        "If something feels off, ask. Don't file it under the calendar."
+      ],
+      ask:"How are you actually doing today?",
+      why:"Both estrogen and progesterone drop in the last days before bleeding. Some people notice mood and patience shift, many don't, and it never predicts a specific day.",
+      plan:"Some people find this a thinner stretch. Keep it low-stimulation with easy exits, don't stack the day, and let her set the pace.",
+      together:{
+        do:{
+          touch:["Steady, undemanding contact. Be a place to land, not a request.",
+                 "Ask before the big hug, then hold it longer than feels necessary."],
+          words:["Lead with reassurance rather than solutions.",
+                 "Tell her you're on her side before you say anything about the problem."],
+          time:["Keep the evening open and low-stimulation. Let her opt in or out.",
+                "Twenty minutes present and undistracted. Phone down, in another room."],
+          acts:["Absorb the logistics. Fewer questions, fewer decisions for her.",
+                "Make the food, clear the space, run the errand. No commentary."],
+          gifts:["Comfort, not romance: the snack, the tea, the thing that helps.",
+                 "Pick up painkillers and her preferred everything before she needs them."]
+        },
+        say:["Do you want me to help with it, {name}, or do you just want me to listen?",
+             "You don't have to explain it. What do you need from me?",
+             "Is there anything you need that you haven't asked for?"],
+        skip:["Any version of pointing at her cycle as the reason. It never helps and she'll remember it.",
+              "Assuming she wants space. Ask which one she wants.",
+              "Matching her tone if she's short with you. Stay level.",
+              "Stacking the day with things that need her to be on."]
+      },
+      apart:{
+        do:{
+          touch:["Warmth without a request. Say you miss her, expect nothing back.",
+                 "Voice note rather than a call, so she can take it when she has the energy."],
+          words:["Reassure without solving. Tell her you're on her side, full stop.",
+                 "Say the steady thing: you're not going anywhere, nothing's wrong between you."],
+          time:["Offer the call and give her the easy out in the same message.",
+                "Be reachable rather than demanding. Available, not waiting."],
+          acts:["Take a decision off her plate and just tell her it's handled.",
+                "Have dinner delivered on the hardest day so she doesn't have to cook."],
+          gifts:["Send the comfort thing rather than the romantic thing.",
+                 "Painkillers, her snack, whatever she always runs out of."]
+        },
+        say:["How are you doing today, {name}? You don't have to be upbeat with me.",
+             "Anything I can do from here to make today easier?",
+             "No reply needed. Just wanted you to know I'm here.",
+             "Do you want me to call tonight, or is that too much?"],
+        skip:["Going quiet for a day.",
+              "Long voice notes or threads that need a real reply.",
+              "Raising anything unresolved by text.",
+              "Reading a blunt reply as a verdict on you."]
+      }
+    }
+  };
+
+  /* Temporary context. Overrides the phase brief for the day it's set,
+     because what's happening now beats what's average. */
+  var CTX = {
+    hardday:{label:"Rough day at work",
+      do:["Take one thing off her plate without being asked. Dinner, dishes, the errand.",
+          "Let her tell the whole story before you offer a single solution."],
+      say:["Do you want to vent, or do you want help?",
+           "Tell me what happened. All of it."],
+      skip:["Jumping to fixing it before you've asked whether she wants fixing.",
+            "Stacking more decisions on her tonight."]},
+    sick:{label:"She's sick",
+      do:["Handle food, medicine and the quiet. Don't make her ask twice.",
+          "Check in once, then let her sleep."],
+      say:["What do you need? I'll bring it.",
+           "Do you want company, or quiet?"],
+      skip:["Being cheerfully busy around her.",
+            "Plans. Cancel them and tell her they're cancelled."]},
+    argued:{label:"We argued",
+      do:["Repair before you're right. Name your own part of it specifically.",
+          "Give it time but not silence. Say out loud that you're still here."],
+      say:["Can we talk when you're ready? I've been thinking about your side of it.",
+           "What did I miss in what you were telling me?"],
+      skip:["Relitigating the facts.",
+            "Using anything in this app as ammunition. Never bring up her cycle in a disagreement."]},
+    bigday:{label:"Big day coming",
+      do:["Clear her runway: logistics, food, quiet. Remove friction rather than adding pep talks.",
+          "Ask what would help, then do exactly that thing."],
+      say:["What would make tomorrow easier? I'll handle it.",
+           "Do you want company tonight, or space to get ready?"],
+      skip:["Unsolicited advice about how she should do it.",
+            "Big plans the night before."]},
+    overwhelmed:{label:"Overwhelmed",
+      do:["Reduce, don't add. One thing off the list, no new proposals.",
+          "Offer one specific option instead of an open question."],
+      say:["Want me to take dinner tonight so you can stop for an hour?",
+           "What's the one thing I can take off you right now?"],
+      skip:["Asking her to choose between five things.",
+            "Adding your own stress to the pile right now."]},
+    traveling:{label:"She's traveling",
+      do:["Make her arrival easy: the ride, the food, the thing she forgot.",
+          "One warm check-in, timed to her time zone rather than yours."],
+      say:["Text me when you land, no rush.",
+           "How's the trip going? Tell me the good parts."],
+      skip:["Long threads while she's in transit.",
+            "Making her manage your worry."]}
+  };
+
+  var CATS = ["Favorites","Food & drink","Dislikes","Gift ideas","Date ideas","Places","Travel",
+    "Hobbies","Entertainment","Style","Affection","Communication","Conflict","Comfort","Stress",
+    "Boundaries","People","Stories","Goals","Important dates","Other"];
+
+  // First-pass categorisation. Deliberately dumb and always overridable;
+  // real language understanding is a server-side job later.
+  var KW = {
+    "Food & drink":["eat","food","coffee","restaurant","dinner","lunch","snack","drink","wine","beer","cook","pizza","dessert","ice cream","dippin","tea","sushi","taco"],
+    "Dislikes":["hates","hate","dislikes","doesn't like","does not like","can't stand","annoyed by","allergic"],
+    "Gift ideas":["gift","present","wants","wishlist","birthday present","lego","jewelry","ring","flowers","perfume","buy her"],
+    "Date ideas":["date","take her","we should go","night out","movie","concert","show"],
+    "Places":["restaurant","bar","park","beach","store","shop","museum","spot","place"],
+    "Travel":["travel","trip","vacation","fly","visit","someday go","italy","japan","cruise"],
+    "Hobbies":["hobby","paints","reads","runs","yoga","gym","crochet","garden","puzzle","lego"],
+    "Entertainment":["show","series","movie","music","song","band","podcast","book","netflix"],
+    "Style":["wear","dress","shoes","size","color","colour","perfume","earrings","style"],
+    "Affection":["touch","hug","cuddle","affection","kiss","hold","physical"],
+    "Communication":["listen","talk","vent","text","call","communicate","explain","interrupt"],
+    "Conflict":["argue","argument","fight","conflict","upset with me","apolog"],
+    "Comfort":["comfort","cozy","blanket","heat","cramp","tired","rest","nap","calm"],
+    "Stress":["stress","overwhelm","anxious","pressure","deadline","work is"],
+    "Boundaries":["boundary","doesn't want","uncomfortable","never","don't ever","off limits"],
+    "People":["mom","mother","dad","father","sister","brother","friend","boss","cousin","aunt","uncle"],
+    "Stories":["grew up","when she was","told me about the time","her childhood","story"],
+    "Goals":["wants to be","dream","goal","someday","one day","hopes to","planning to"],
+    "Important dates":["birthday","anniversary","first date","first kiss","wedding","graduat"]
+  };
+  function guessCats(text){
+    var t = text.toLowerCase(), hits = [];
+    Object.keys(KW).forEach(function(cat){
+      for(var i=0;i<KW[cat].length;i++){
+        if(t.indexOf(KW[cat][i]) !== -1){ hits.push(cat); return; }
+      }
+    });
+    if(/\bloves?\b|\bfavorite\b|\bfavourite\b/.test(t) && hits.indexOf("Favorites") === -1) hits.unshift("Favorites");
+    return hits.length ? hits.slice(0,3) : ["Other"];
+  }
+
+  /* Which playbook categories are worth surfacing in which phase. */
+  var PB_RELEVANT = {
+    menstrual:["Comfort","Food & drink","Favorites","Affection"],
+    follicular:["Date ideas","Places","Travel","Hobbies","Goals"],
+    fertile:["Date ideas","Places","Favorites","Entertainment"],
+    luteal:["Comfort","Food & drink","Communication","Stress"],
+    premenstrual:["Comfort","Affection","Communication","Boundaries","Stress"]
+  };
+
+  var TALK = {
+    fertile:{v:"good",t:"Often the best window. Energy and patience usually both up."},
+    follicular:{v:"good",t:"Commonly open and forward-looking. Good for plans and hard asks."},
+    luteal:{v:"ok",t:"Usually workable early, thinner later. Keep it short and specific."},
+    menstrual:{v:"avoid",t:"Commonly low reserves. Only if it genuinely can't wait."},
+    premenstrual:{v:"avoid",t:"Some people find things land harder here. Hold it if you can."}
+  };
+
+  /* ================= stable content ids ================= */
+  function eachContent(fn){
+    Object.keys(C).forEach(function(p){
+      ["together","apart"].forEach(function(m){
+        var s = C[p][m];
+        Object.keys(s.do).forEach(function(l){
+          s.do[l].forEach(function(t,i){ fn(p+"|"+m+"|do."+l+"|"+i, t); });
+        });
+        s.say.forEach(function(t,i){ fn(p+"|"+m+"|say|"+i, t); });
+        s.skip.forEach(function(t,i){ fn(p+"|"+m+"|skip|"+i, t); });
+      });
+    });
+    Object.keys(CTX).forEach(function(k){
+      ["do","say","skip"].forEach(function(b){
+        CTX[k][b].forEach(function(t,i){ fn("ctx."+k+"|"+b+"|"+i, t); });
+      });
+    });
+  }
+  function hash(str){
+    var h = 2166136261;
+    for(var i=0;i<str.length;i++){ h ^= str.charCodeAt(i); h = Math.imul(h,16777619); }
+    return Math.abs(h);
+  }
+  var TEXT_OF = {};
+  eachContent(function(id, t){ TEXT_OF[id] = t; });
+
+  /* Pick an item from a bucket, honouring feedback:
+     rating 1 retires it, rating 4 brings it back around. */
+  function pickId(ids, seed, bump){
+    if(!ids.length) return null;
+    var live = ids.filter(function(id){ return (D.feedback[id]||0) !== 1; });
+    var pool = live.length ? live : ids;
+    var loved = pool.filter(function(id){ return (D.feedback[id]||0) === 4; });
+    if(loved.length && (seed+(bump||0)) % 3 === 0) pool = loved;
+    return pool[(seed+(bump||0)) % pool.length];
+  }
+  function idsFor(prefix, arr){
+    return arr.map(function(_,i){ return prefix+"|"+i; });
+  }
+  function fillName(s){
+    var n = (D.partner.name||"").trim();
+    if(n) return s.replace(/\{name\}/g, n);
+    s = s.replace(/,\s*\{name\}/g,"").replace(/\{name\},\s*/g,"").replace(/\{name\}/g,"");
+    return s.charAt(0).toUpperCase()+s.slice(1);
+  }
+
+  /* ================= app ================= */
+  var D = null, st = null, bump = 0, view = "today", shown = {};
+  var app = document.getElementById("app"), sheet = document.getElementById("sheet"),
+      cap = document.getElementById("cap"), tabs = document.getElementById("tabs"),
+      fab = document.getElementById("fab");
+
+  function ctxToday(){
+    var e = D.entries.filter(function(x){ return x.type === "context" && x.date === iso(today()); });
+    return e.length ? e[e.length-1].text : null;   // text holds the CTX key
+  }
+  function apartToday(){
+    var ov = D.modeOverride;
+    if(ov && ov.d === iso(today())) return ov.apart;
+    if(!D.prefs.see) return false;
+    return parseISO(D.prefs.see) > today();
+  }
+  function memories(){ return D.entries.filter(function(e){ return e.type === "memory"; }); }
+  function dateEntries(){ return D.entries.filter(function(e){ return e.type === "date"; }); }
+
+  function render(){
+    st = state(D);
+    if(view === "today") renderToday();
+    if(view === "ahead") renderAhead();
+    if(view === "play")  renderPlay();
+    if(view === "cycle") renderCycle();
+  }
+
+  function renderToday(){
+    var ph = phaseFor(st.day, st.len), c = C[ph], apart = apartToday();
+    var ll = D.prefs.love || "time", ck = ctxToday();
+    var seed = hash(iso(today())+ph+ll+(apart?"a":"t")+(ck||""));
+
+    document.getElementById("today-date").textContent = pretty(today());
+    document.getElementById("m-together").setAttribute("aria-pressed", apart?"false":"true");
+    document.getElementById("m-apart").setAttribute("aria-pressed", apart?"true":"false");
+
+    document.getElementById("phase-name").textContent = ck ? CTX[ck].label : c.title;
+    var dm = "Day "+st.day+" of "+st.len;
+    if(st.cyclesSince > 0 && !st.stale) dm += " · projected from "+shortDate(st.last);
+    if(ck) dm += " · context set for today";
+    document.getElementById("day-mark").innerHTML = "<b>"+dm+"</b>";
+
+    var gistIds = idsFor(ph+"|gist", c.gist);
+    document.getElementById("gist").textContent = ck
+      ? "You've told the app what's going on today, so it's leading with that rather than the calendar. Cycle context is underneath if you want it."
+      : c.gist[(seed+bump) % c.gist.length];
+    document.getElementById("ask-q").textContent = c.ask;
+
+    var set = apart ? c.apart : c.together;
+    var doIds, sayIds, skipIds, doArr, sayArr, skipArr;
+    if(ck){
+      doArr = CTX[ck].do;   doIds   = idsFor("ctx."+ck+"|do", doArr);
+      sayArr = CTX[ck].say; sayIds  = idsFor("ctx."+ck+"|say", sayArr);
+      skipArr= CTX[ck].skip;skipIds = idsFor("ctx."+ck+"|skip", skipArr);
+    } else {
+      doArr = set.do[ll] || set.do.time; doIds = idsFor(ph+"|"+(apart?"apart":"together")+"|do."+((set.do[ll])?ll:"time"), doArr);
+      sayArr = set.say;  sayIds  = idsFor(ph+"|"+(apart?"apart":"together")+"|say", sayArr);
+      skipArr= set.skip; skipIds = idsFor(ph+"|"+(apart?"apart":"together")+"|skip", skipArr);
+    }
+    shown.do   = pickId(doIds, seed, bump);
+    shown.say  = pickId(sayIds, seed, bump);
+    shown.skip = pickId(skipIds, seed, bump);
+
+    document.getElementById("h-do").textContent  = (apart && !ck) ? "Do from here" : "Do";
+    document.getElementById("h-say").textContent = (apart && !ck) ? "Open with, by text" : "Open with";
+    document.getElementById("c-do").textContent  = fillName(TEXT_OF[shown.do] || "");
+    var sayTxt = fillName(TEXT_OF[shown.say] || "");
+    document.getElementById("c-say").textContent = (apart && !ck) ? sayTxt : "\u201C"+sayTxt+"\u201D";
+    document.getElementById("c-skip").textContent = TEXT_OF[shown.skip] || "";
+    var cp = document.getElementById("copy-say");
+    cp.textContent = (apart && !ck) ? "Copy message" : "Copy"; cp.dataset.on = "0";
+
+    document.getElementById("why-txt").textContent = c.why;
+    document.getElementById("why-txt").hidden = true;
+    document.getElementById("why-btn").textContent = "Why this?";
+
+    renderLearn();
+    renderCtxChips(ck);
+    renderPbCard(ph, seed);
+    renderFlag(apart, ph);
+    var rated = D.log.some(function(e){ return e.d === iso(today()); });
+    document.getElementById("rate").hidden = rated;
+    Array.prototype.forEach.call(document.querySelectorAll("#rate [data-r]"), function(b){
+      b.setAttribute("aria-pressed","false");
+    });
+    drawTide();
+  }
+
+  // The point of the app is noticing, so this nudge outranks the daily brief.
+  // Deliberately quiet: only after a few dry days, and dismissible for the day.
+  function renderLearn(){
+    var box = document.getElementById("learn");
+    if(D.prefs.learnDismissed === iso(today())){ box.hidden = true; return; }
+    var mem = memories();
+    var last = mem.length ? mem[mem.length-1].created : null;
+    var dry = last ? daysBetween(parseISO(last), today()) : 99;
+    box.hidden = dry < 3;
+    if(!box.hidden){
+      box.querySelector("b").textContent = mem.length
+        ? "Anything she mentioned in the last few days?"
+        : "Start her playbook. Anything she's told you lately?";
+    }
+  }
+
+  function renderCtxChips(active){
+    var html = "";
+    Object.keys(CTX).forEach(function(k){
+      html += '<button class="chip" data-ctx="'+k+'" aria-pressed="'+(k===active?"true":"false")+'">'+CTX[k].label+'</button>';
+    });
+    var box = document.getElementById("ctx-chips");
+    box.innerHTML = html;
+    Array.prototype.forEach.call(box.querySelectorAll("[data-ctx]"), function(b){
+      b.addEventListener("click", function(){
+        var k = b.dataset.ctx, wasOn = b.getAttribute("aria-pressed") === "true";
+        D.entries = D.entries.filter(function(e){
+          return !(e.type === "context" && e.date === iso(today()));
+        });
+        if(!wasOn){
+          D.entries.push({id:uid(), type:"context", kind:"fact", text:k, cats:[],
+            date:iso(today()), created:iso(today()), day:st.day, phase:phaseFor(st.day,st.len)});
+        }
+        save(D); bump = 0; renderToday();
+      });
+    });
+  }
+
+  function renderPbCard(ph, seed){
+    var card = document.getElementById("pb-card");
+    var rel = PB_RELEVANT[ph] || [];
+    var mem = memories();
+    var pool = mem.filter(function(e){
+      return e.cats.some(function(c){ return rel.indexOf(c) !== -1; });
+    });
+    if(!pool.length) pool = mem;          // nothing phase-relevant: surface anything
+    if(!pool.length){ card.hidden = true; return; }
+    // Facts first: something she said outranks something you guessed.
+    var solid = pool.filter(function(e){
+      return e.kind === "stated" || e.confirmed;
+    });
+    var use = (solid.length ? solid : pool);
+    var e = use[seed % use.length];
+    var settled = e.kind === "stated" || !!e.confirmed;
+    card.hidden = false;
+    document.getElementById("h-pb").textContent = settled ? "Lead with this" : "Worth asking her about";
+    document.getElementById("c-pb").textContent = e.text;
+    document.getElementById("c-pb-sub").innerHTML = settled
+      ? provLabel(e)
+      : provLabel(e) + ". Ask rather than act on it.";
+  }
+
+  function renderFlag(apart, ph){
+    var flag = document.getElementById("flag");
+    flag.className = "flag";
+    if(st.stale){
+      flag.hidden = false;
+      flag.innerHTML = "<b>This reading is stale.</b> Her last logged start was "+shortDate(st.last)+
+        ", "+st.elapsed+" days ago. Log the new start date on the Cycle tab and the rest comes back to life.";
+      return;
+    }
+    if(D.prefs.see){
+      var dOut = daysBetween(today(), parseISO(D.prefs.see));
+      if(dOut === 0){
+        flag.hidden = false; flag.className = "flag calm";
+        flag.innerHTML = "<b>You see her today.</b> "+C[ph].plan; return;
+      }
+      if(dOut === 1){
+        var d2 = dayOn(addDays(today(),1), st);
+        flag.hidden = false; flag.className = "flag calm";
+        flag.innerHTML = "<b>Tomorrow.</b> She'll be on day "+d2+". "+C[phaseFor(d2,st.len)].plan; return;
+      }
+    }
+    // Priority: broken data, then imminent reunion, then a date inside a week,
+    // then today's phase, then the lookahead, then more distant dates.
+    var soon = upcomingDates(30);
+    if(soon.length && soon[0].days <= 7){ return dateFlag(flag, soon[0]); }
+    if(isRough(st.day, st.len)){
+      flag.hidden = false;
+      flag.innerHTML = "<b>Commonly a harder stretch.</b> "+(apart
+        ? "Being present and undemanding is a safe default. Ask how she's doing rather than guessing."
+        : "Lowering the stakes costs nothing. Ask how she's doing rather than guessing.");
+      return;
+    }
+    for(var k=1;k<=4;k++){
+      if(isRough(dayOn(addDays(today(),k), st), st.len)){
+        flag.hidden = false;
+        flag.innerHTML = "<b>Heads up:</b> a commonly harder stretch starts "+
+          (k===1?"tomorrow":"in "+k+" days")+". Anything heavy is easier handled before then.";
+        return;
+      }
+    }
+    if(soon.length && soon[0].days <= 30){ return dateFlag(flag, soon[0]); }
+    flag.hidden = true;
+  }
+
+  function dateFlag(flag, up){
+    flag.hidden = false; flag.className = "flag note";
+    var gifts = memories().filter(function(e){ return e.cats.indexOf("Gift ideas") !== -1; }).length;
+    flag.innerHTML = "<b>"+esc(up.label)+" in "+up.days+" day"+(up.days===1?"":"s")+".</b> "+
+      (gifts ? "You've saved "+gifts+" gift idea"+(gifts===1?"":"s")+" in your playbook."
+             : "Nothing saved under gift ideas yet.");
+  }
+
+  function drawTide(){
+    var W=420,H=118,padL=6,padR=6,padT=10,baseY=92,len=st.len;
+    var X=function(d){ return padL+(d-1)/(len-1)*(W-padL-padR); };
+    var Y=function(e){ return baseY-e*(baseY-padT); };
+    var pts=[]; for(var d=1;d<=len;d++) pts.push([X(d),Y(energyFor(d,len))]);
+    var path="M"+pts[0][0].toFixed(1)+" "+pts[0][1].toFixed(1);
+    for(var i=1;i<pts.length;i++){
+      var p0=pts[i-1],p1=pts[i],mx=(p0[0]+p1[0])/2;
+      path+=" C"+mx.toFixed(1)+" "+p0[1].toFixed(1)+" "+mx.toFixed(1)+" "+p1[1].toFixed(1)+" "+p1[0].toFixed(1)+" "+p1[1].toFixed(1);
+    }
+    var fill=path+" L"+pts[pts.length-1][0].toFixed(1)+" "+baseY+" L"+pts[0][0].toFixed(1)+" "+baseY+" Z";
+    var ticks="";
+    for(var d2=1;d2<=len;d2++){
+      if(isRough(d2,len)) ticks+='<line class="flagtick" x1="'+X(d2).toFixed(1)+'" y1="'+(baseY+7)+'" x2="'+X(d2).toFixed(1)+'" y2="'+(baseY+11)+'"/>';
+    }
+    var nx=X(st.day),ny=Y(energyFor(st.day,len)),seeMark="";
+    if(D.prefs.see){
+      var sd=parseISO(D.prefs.see);
+      if(sd>=today()){
+        var sdd=dayOn(sd,st);
+        seeMark='<circle class="seedot" cx="'+X(sdd).toFixed(1)+'" cy="'+Y(energyFor(sdd,len)).toFixed(1)+'" r="4.5"/>';
+      }
+    }
+    var ovd=Math.max(10,len-14);
+    document.getElementById("tide").innerHTML =
+      '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Typical energy pattern across a cycle of this length, today marked at day '+st.day+'">'+
+      '<path class="fillband" d="'+fill+'"/><path class="curve draw" d="'+path+'"/>'+
+      '<line class="axis" x1="'+padL+'" y1="'+baseY+'" x2="'+(W-padR)+'" y2="'+baseY+'"/>'+ticks+
+      '<line class="nowline" x1="'+nx.toFixed(1)+'" y1="'+(ny-4).toFixed(1)+'" x2="'+nx.toFixed(1)+'" y2="'+baseY+'"/>'+
+      '<circle class="nowdot" cx="'+nx.toFixed(1)+'" cy="'+ny.toFixed(1)+'" r="4"/>'+seeMark+
+      '<text class="axlabel" x="'+padL+'" y="'+(baseY+21)+'">day 1</text>'+
+      '<text class="axlabel" x="'+X(ovd).toFixed(1)+'" y="'+(baseY+21)+'" text-anchor="middle">typical peak</text>'+
+      '<text class="axlabel" x="'+(W-padR)+'" y="'+(baseY+21)+'" text-anchor="end">day '+len+'</text></svg>';
+  }
+
+  /* ---------- ahead ---------- */
+  function upcomingDates(within){
+    var out = [];
+    dateEntries().forEach(function(e){
+      if(!e.date) return;
+      var src = parseISO(e.date), t = today();
+      var next = new Date(t.getFullYear(), src.getMonth(), src.getDate());
+      if(next < t) next = new Date(t.getFullYear()+1, src.getMonth(), src.getDate());
+      var dd = daysBetween(t, next);
+      if(dd <= (within||365)) out.push({label:e.text, date:next, days:dd, id:e.id});
+    });
+    return out.sort(function(a,b){ return a.days-b.days; });
+  }
+
+  function renderAhead(){
+    var panel = document.getElementById("see-panel"), note = document.getElementById("see-note");
+    if(!D.prefs.see){
+      note.textContent = "not set";
+      panel.innerHTML = '<h3>No date set</h3><p>Add the day you next see her in Setup and this turns '+
+        'into a plan: the phase she\'ll likely be in, and what that usually means for what to book.</p>';
+    } else {
+      var sd = parseISO(D.prefs.see), out = daysBetween(today(), sd);
+      if(out < 0){
+        note.textContent = "past";
+        panel.innerHTML = '<h3>That date has passed</h3><p>Set the next one in Setup.</p>';
+      } else {
+        var sdd = dayOn(sd, st), sph = phaseFor(sdd, st.len);
+        note.textContent = shortDate(sd);
+        panel.innerHTML = '<h3>'+(out===0?"Today":out===1?"Tomorrow":"In "+out+" days")+'</h3>'+
+          '<div class="big">'+C[sph].title+'</div>'+
+          '<div class="sub">'+dowShort(sd)+" "+shortDate(sd)+" · her day "+sdd+'</div>'+
+          '<p>'+C[sph].plan+'</p>';
+      }
+    }
+
+    var ups = upcomingDates(120);
+    document.getElementById("dates-up").innerHTML = ups.length
+      ? ups.slice(0,6).map(function(u){
+          return '<li><span class="when">'+(u.days===0?"Today":u.days+"d")+'</span><span>'+
+            u.label+'<br><span style="color:var(--ink-faint);font-size:13px">'+
+            dowShort(u.date)+" "+shortDate(u.date)+'</span></span></li>';
+        }).join("")
+      : '<li><span>Nothing saved yet. Tap Remember this, write "Her birthday" and mark it as a date.</span></li>';
+
+    document.getElementById("week-1").innerHTML = weekHTML(0);
+    document.getElementById("week-2").innerHTML = weekHTML(7);
+    var rough = 0;
+    for(var k=0;k<14;k++){ if(isRough(dayOn(addDays(today(),k),st), st.len)) rough++; }
+    document.getElementById("fort-note").textContent = rough+(rough===1?" flagged day":" flagged days");
+
+    var rows = "", blocks = [], cur = null;
+    for(var i=0;i<21;i++){
+      var dt = addDays(today(),i), p = phaseFor(dayOn(dt,st), st.len);
+      if(!cur || cur.p !== p){ cur = {p:p, from:dt, to:dt}; blocks.push(cur); } else cur.to = dt;
+    }
+    blocks.forEach(function(b){
+      var v = TALK[b.p];
+      var when = daysBetween(today(),b.from) === 0 ? "Today"
+        : shortDate(b.from)+(daysBetween(b.from,b.to)?" – "+shortDate(b.to):"");
+      var cls = v.v === "good" ? "good" : v.v === "avoid" ? "bad" : "";
+      var lab = v.v === "good" ? "Go" : v.v === "avoid" ? "Wait" : "Maybe";
+      rows += '<li><span class="when">'+when+'</span><span><span class="'+cls+'">'+lab+'</span> — '+v.t+'</span></li>';
+    });
+    document.getElementById("talk").innerHTML = rows;
+  }
+
+  function weekHTML(offset){
+    var html = "";
+    for(var k=offset;k<offset+7;k++){
+      var dt = addDays(today(),k), d = dayOn(dt,st), e = energyFor(d,st.len);
+      var r = isRough(d,st.len), isSee = D.prefs.see && iso(dt) === D.prefs.see;
+      html += '<div class="day'+(r?" rough":"")+(k===0?" today":"")+(isSee?" see":"")+'">'+
+        '<div class="dow">'+dt.toLocaleDateString(undefined,{weekday:"narrow"})+'</div>'+
+        '<div class="bar"><i style="height:'+Math.round(e*100)+'%"></i></div>'+
+        '<div class="n">'+d+'</div></div>';
+    }
+    return html;
+  }
+
+  /* ---------- playbook ---------- */
+  function renderPlay(){
+    var mem = memories(), dts = dateEntries();
+    var q = (document.getElementById("pb-search").value || "").toLowerCase().trim();
+    // Counting what he noticed, not what he complied with.
+    var wk = D.entries.filter(function(e){
+      return e.type !== "context" && daysBetween(parseISO(e.created), today()) <= 7;
+    }).length;
+    document.getElementById("pb-count").textContent =
+      (mem.length+dts.length)
+        ? (mem.length+" saved · "+wk+" this week")
+        : "empty";
+
+    // Repeated observations in one area are a question, not a conclusion.
+    // Escalates with evidence instead of repeating itself. One unconfirmed guess
+    // is just marked on the entry; the prompt has to be earned.
+    var byCat = {};
+    mem.forEach(function(e){
+      if(e.source !== "user" || e.confirmed) return;
+      e.cats.forEach(function(c){ byCat[c] = (byCat[c]||0)+1; });
+    });
+    var hot = Object.keys(byCat).sort(function(a,b){ return byCat[b]-byCat[a]; })[0];
+    var nud = document.getElementById("pb-nudge");
+    var n = hot ? byCat[hot] : 0;
+    if(n >= 3){
+      nud.hidden = false;
+      nud.innerHTML = "<b>You've noticed "+n+" things about "+hot.toLowerCase()+
+        " that she hasn't confirmed.</b> Worth asking her directly rather than building on the "+
+        "guess. If she confirms one, mark it and the app will stop treating it as yours.";
+    } else if(n === 2){
+      nud.hidden = false;
+      nud.innerHTML = "<b>Possible pattern around "+hot.toLowerCase()+".</b> "+
+        "Two unconfirmed observations. Not enough to act on yet.";
+    } else {
+      nud.hidden = true;
+    }
+
+    var list = document.getElementById("pb-list");
+    var all = mem.concat(dts).filter(function(e){
+      return !q || e.text.toLowerCase().indexOf(q) !== -1 ||
+        e.cats.join(" ").toLowerCase().indexOf(q) !== -1;
+    });
+    if(!all.length){
+      list.innerHTML = '<p class="empty">'+(q ? "Nothing matches that."
+        : "Nothing saved yet. Tap Remember this whenever she mentions something. "+
+          "Her comfort food, a restaurant she wants to try, how she prefers to be listened to. "+
+          "The app files it and hands it back when it's useful.")+'</p>';
+      return;
+    }
+    var groups = {};
+    all.forEach(function(e){
+      var c = e.type === "date" ? "Important dates" : (e.cats[0] || "Other");
+      (groups[c] = groups[c] || []).push(e);
+    });
+    var order = CATS.filter(function(c){ return groups[c]; });
+    list.innerHTML = order.map(function(c){
+      return '<div class="cat"><h3>'+c+'</h3>'+groups[c].map(function(e){
+        var sub, btn = "";
+        if(e.type === "date"){
+          sub = "Yearly · "+shortDate(parseISO(e.date));
+        } else {
+          sub = provLabel(e);
+          if(e.occurred && e.occurred !== e.created) sub += " · happened "+shortDate(parseISO(e.occurred));
+          if(e.source === "user" && !e.confirmed){
+            btn = '<button class="pill" data-ok="'+e.id+'" style="margin-top:8px">She confirmed it</button>';
+          }
+        }
+        return '<div class="ent"><div class="body" data-ed="'+e.id+'" role="button" tabindex="0">'+
+          '<div class="txt">'+esc(e.text)+'</div>'+
+          '<div class="sub">'+sub+'</div>'+btn+'</div>'+
+          '<button class="x" data-rm="'+e.id+'" aria-label="Delete">✕</button></div>';
+      }).join("")+'</div>';
+    }).join("");
+    Array.prototype.forEach.call(list.querySelectorAll("[data-ok]"), function(b){
+      b.addEventListener("click", function(ev){
+        ev.stopPropagation();
+        var e = D.entries.filter(function(x){ return x.id === b.dataset.ok; })[0];
+        if(e){ e.confirmed = iso(today()); save(D); renderPlay(); }
+      });
+    });
+    Array.prototype.forEach.call(list.querySelectorAll("[data-ed]"), function(b){
+      b.addEventListener("click", function(){
+        var e = D.entries.filter(function(x){ return x.id === b.dataset.ed; })[0];
+        if(e) openCap(e);
+      });
+    });
+    Array.prototype.forEach.call(list.querySelectorAll("[data-rm]"), function(b){
+      b.addEventListener("click", function(){
+        if(!confirm("Delete this from the playbook?")) return;
+        D.entries = D.entries.filter(function(e){ return e.id !== b.dataset.rm; });
+        save(D); renderPlay();
+      });
+    });
+  }
+  // Provenance in one line. An observation she later confirmed keeps its history:
+  // you guessed, then you checked. That is worth more than either state alone.
+  function provLabel(e){
+    var base;
+    if(e.source === "system")      base = '<span class="obs">Pattern the app spotted</span>';
+    else if(e.kind === "inferred") base = '<span class="obs">Your read on her</span>';
+    else if(e.kind === "observed") base = '<span class="obs">You saw this</span>';
+    else                           base = "She told you";
+    if(e.source === "user"){
+      base += e.confirmed
+        ? " · she confirmed it "+shortDate(parseISO(e.confirmed))
+        : " · unconfirmed";
+    }
+    return base;
+  }
+
+  function esc(s){
+    return String(s).replace(/[&<>"]/g, function(m){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m];
+    });
+  }
+
+  /* ---------- cycle ---------- */
+  function renderCycle(){
+    var inDays = daysBetween(today(), st.nextStart);
+    document.getElementById("src-note").textContent = st.learned
+      ? "learned from "+st.starts.length+" logs" : "from your setup";
+    document.getElementById("stats").innerHTML =
+      '<div><span>Last period began</span><b>'+shortDate(st.last)+'</b></div>'+
+      '<div><span>Cycle length</span><b>'+st.len+' days'+(st.learned?" (average)":" (your estimate)")+'</b></div>'+
+      '<div><span>Next expected</span><b>'+shortDate(st.nextStart)+(inDays>=0?" · in "+inDays+" days":"")+'</b></div>'+
+      '<div><span>Today</span><b>day '+st.day+'</b></div>';
+
+    var h = "";
+    if(st.starts.length > 1){
+      h = "<ul>";
+      for(var i=st.starts.length-1;i>=Math.max(0,st.starts.length-6);i--){
+        h += '<li><span>'+pretty(parseISO(st.starts[i]))+'</span><button data-del="'+st.starts[i]+'">Remove</button></li>';
+      }
+      h += "</ul>";
+    }
+    document.getElementById("hist").innerHTML = h;
+    Array.prototype.forEach.call(document.querySelectorAll("[data-del]"), function(b){
+      b.addEventListener("click", function(){
+        if(st.starts.length <= 1) return;
+        D.cycle.starts = D.cycle.starts.filter(function(x){ return x !== b.dataset.del; });
+        if(D.cycle.starts.length >= 2) D.cycle.lenManual = false;
+        save(D); render();
+      });
+    });
+
+    var landed = [], retired = 0, rated = 0;
+    Object.keys(D.feedback).forEach(function(k){
+      var r = D.feedback[k];
+      rated++;
+      if(r === 4) landed.push(k);
+      if(r === 1) retired++;
+    });
+    var box = document.getElementById("wins");
+    document.getElementById("wins-note").textContent = rated ? rated+" rated" : "nothing rated yet";
+    if(!rated){
+      box.innerHTML = '<p class="empty">Rate a few days on the Today screen and this fills in. '+
+        'Anything marked "don\'t suggest again" is retired for good, and things that land come back around.</p>';
+    } else {
+      box.innerHTML = '<div class="stats"><div><span>Landed</span><b>'+landed.length+'</b></div>'+
+        '<div><span>Retired</span><b>'+retired+'</b></div></div>'+
+        (landed.length ? '<ul class="stack">'+landed.slice(0,6).map(function(k){
+          return '<li><span>'+esc(fillName(TEXT_OF[k]||"(retired line)"))+'</span></li>';
+        }).join("")+'</ul>' : '');
+    }
+  }
+
+  /* ================= events ================= */
+  function setView(v){
+    view = v;
+    ["today","ahead","play","cycle"].forEach(function(n){
+      document.getElementById("v-"+n).hidden = n !== v;
+    });
+    Array.prototype.forEach.call(tabs.querySelectorAll("[data-v]"), function(b){
+      b.setAttribute("aria-selected", b.dataset.v === v ? "true" : "false");
+    });
+    window.scrollTo(0,0);
+    render();
+  }
+  Array.prototype.forEach.call(tabs.querySelectorAll("[data-v]"), function(b){
+    b.addEventListener("click", function(){ setView(b.dataset.v); });
+  });
+
+  document.getElementById("m-together").addEventListener("click", function(){
+    D.modeOverride = {d:iso(today()), apart:false}; save(D); bump = 0; renderToday();
+  });
+  document.getElementById("m-apart").addEventListener("click", function(){
+    D.modeOverride = {d:iso(today()), apart:true}; save(D); bump = 0; renderToday();
+  });
+  document.getElementById("shuffle").addEventListener("click", function(){
+    bump = (bump+1)%11; renderToday();
+  });
+  document.getElementById("why-btn").addEventListener("click", function(){
+    var t = document.getElementById("why-txt");
+    t.hidden = !t.hidden;
+    this.textContent = t.hidden ? "Why this?" : "Hide";
+  });
+  document.getElementById("copy-say").addEventListener("click", function(){
+    var txt = document.getElementById("c-say").textContent.replace(/[\u201C\u201D]/g,"");
+    var btn = this;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){
+        btn.textContent = "Copied"; btn.dataset.on = "1";
+      }, function(){ btn.textContent = "Select the text above"; });
+    } else btn.textContent = "Select the text above";
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("#rate [data-r]"), function(b){
+    b.addEventListener("click", function(){
+      var r = +b.dataset.r;
+      D.log.push({d:iso(today()), r:r, id:shown.do});
+      if(D.log.length > 200) D.log = D.log.slice(-200);
+      [shown.do, shown.say].forEach(function(id){ if(id) D.feedback[id] = r; });
+      save(D);
+      b.setAttribute("aria-pressed","true");
+      setTimeout(function(){ document.getElementById("rate").hidden = true; }, 420);
+    });
+  });
+  document.getElementById("pb-search").addEventListener("input", function(){ renderPlay(); });
+  document.getElementById("learn-go").addEventListener("click", function(){ openCap(); });
+  document.getElementById("learn-later").addEventListener("click", function(){
+    D.prefs.learnDismissed = iso(today()); save(D);
+    document.getElementById("learn").hidden = true;
+  });
+
+  function addStart(s){
+    if(D.cycle.starts.indexOf(s) === -1) D.cycle.starts.push(s);
+    D.cycle.starts.sort();
+    if(D.cycle.starts.length >= 2) D.cycle.lenManual = false;
+    save(D); render();
+  }
+  document.getElementById("log-today").addEventListener("click", function(){
+    addStart(iso(today()));
+    var b = this; b.textContent = "Logged";
+    setTimeout(function(){ b.textContent = "Her period started today"; }, 1600);
+  });
+  document.getElementById("log-other").addEventListener("click", function(){
+    var inp = document.createElement("input");
+    inp.type = "date"; inp.max = iso(today());
+    inp.style.position = "fixed"; inp.style.left = "-9999px";
+    document.body.appendChild(inp);
+    inp.addEventListener("change", function(){ if(inp.value) addStart(inp.value); inp.remove(); });
+    if(inp.showPicker){ try{ inp.showPicker(); return; }catch(e){} }
+    inp.remove();
+    var v = prompt("Start date (YYYY-MM-DD)");
+    if(v && /^\d{4}-\d{2}-\d{2}$/.test(v)) addStart(v);
+  });
+  document.getElementById("export").addEventListener("click", function(){
+    var btn = this, txt = JSON.stringify(D, null, 2);
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){
+        btn.textContent = "Copied to clipboard";
+        setTimeout(function(){ btn.textContent = "Copy all my data as text"; }, 2000);
+      }, function(){ btn.textContent = "Couldn't copy"; });
+    }
+  });
+
+  /* ---------- capture ---------- */
+  var capKind = "stated", capCats = [], capIsDate = false, capEdit = null;
+  function openCap(entry){
+    capEdit = entry || null;
+    capKind = capEdit ? (capEdit.kind || "stated") : "stated";
+    capCats = capEdit ? capEdit.cats.slice() : [];
+    capIsDate = capEdit ? capEdit.type === "date" : false;
+    document.getElementById("cap-text").value = capEdit ? capEdit.text : "";
+    document.getElementById("cap-text").dataset.touched = capEdit ? "1" : "";
+    document.getElementById("cap-date").value = (capEdit && capEdit.date) ? capEdit.date : "";
+    document.getElementById("cap-when").value =
+      (capEdit && capEdit.occurred) ? capEdit.occurred : iso(today());
+    document.getElementById("cap-when").max = iso(today());
+    document.getElementById("cap-err").hidden = true;
+    document.getElementById("date-wrap").hidden = !capIsDate;
+    document.getElementById("cap-date-toggle").textContent = capIsDate
+      ? "Not a date, just a note" : "This is a date to remember";
+    document.getElementById("cap-title").textContent = capEdit ? "Fix this" : "What happened?";
+    document.getElementById("cap-save").textContent = capEdit ? "Save changes" : "Save";
+    setKind(capKind);
+    drawCapCats();
+    cap.hidden = false; tabs.hidden = true; fab.hidden = true;
+    setTimeout(function(){ document.getElementById("cap-text").focus(); }, 80);
+  }
+  function closeCap(){
+    cap.hidden = true; tabs.hidden = false; fab.hidden = false; render();
+  }
+  var KIND_HINT = {
+    stated:"Things she said. Kept as stated, and treated as settled.",
+    observed:"Something you actually saw or heard. Recorded as yours, not as a fact about her, until she confirms it.",
+    inferred:"Your read on her. Held loosely: the app will never build on it as though she said it."
+  };
+  function setKind(k){
+    capKind = k;
+    ["stated","observed","inferred"].forEach(function(n){
+      document.getElementById("k-"+n).setAttribute("aria-pressed", k===n?"true":"false");
+    });
+    document.getElementById("kind-hint").textContent = KIND_HINT[k];
+  }
+  ["stated","observed","inferred"].forEach(function(n){
+    document.getElementById("k-"+n).addEventListener("click", function(){ setKind(n); });
+  });
+  function sourceOf(k){ return k === "stated" ? "partner" : "user"; }
+
+  function drawCapCats(){
+    var box = document.getElementById("cap-cats");
+    box.innerHTML = CATS.map(function(c){
+      return '<button class="chip" data-cat="'+c+'" aria-pressed="'+(capCats.indexOf(c)!==-1?"true":"false")+'">'+c+'</button>';
+    }).join("");
+    Array.prototype.forEach.call(box.querySelectorAll("[data-cat]"), function(b){
+      b.addEventListener("click", function(){
+        var c = b.dataset.cat, i = capCats.indexOf(c);
+        if(i === -1) capCats.push(c); else capCats.splice(i,1);
+        drawCapCats();
+      });
+    });
+  }
+  document.getElementById("cap-text").addEventListener("input", function(){
+    // Keep re-guessing until the user overrides by tapping a chip.
+    if(!this.dataset.touched){
+      capCats = guessCats(this.value);
+      drawCapCats();
+    }
+  });
+  document.getElementById("cap-cats").addEventListener("click", function(){
+    document.getElementById("cap-text").dataset.touched = "1";
+  });
+  document.getElementById("cap-date-toggle").addEventListener("click", function(){
+    capIsDate = !capIsDate;
+    document.getElementById("date-wrap").hidden = !capIsDate;
+    this.textContent = capIsDate ? "Not a date, just a note" : "This is a date to remember";
+    if(capIsDate && capCats.indexOf("Important dates") === -1){ capCats = ["Important dates"]; drawCapCats(); }
+  });
+  document.getElementById("cap-close").addEventListener("click", closeCap);
+  document.getElementById("fab").addEventListener("click", function(){ openCap(); });
+
+  document.getElementById("cap-save").addEventListener("click", function(){
+    var err = document.getElementById("cap-err");
+    var text = document.getElementById("cap-text").value.trim();
+    var dv = document.getElementById("cap-date").value;
+    var wv = document.getElementById("cap-when").value || iso(today());
+    if(!text){ err.hidden = false; err.textContent = "Write what you want to remember."; return; }
+    if(capIsDate && !dv){ err.hidden = false; err.textContent = "Pick the date, or switch it back to a note."; return; }
+    if(parseISO(wv) > today()){ err.hidden = false; err.textContent = "That's in the future. When did this actually happen?"; return; }
+    err.hidden = true;
+    if(capEdit){
+      // Editing keeps the original capture date: when you learned it still matters.
+      capEdit.type = capIsDate ? "date" : "memory";
+      capEdit.kind = capKind;
+      capEdit.source = sourceOf(capKind);
+      capEdit.text = text;
+      capEdit.cats = capCats.length ? capCats.slice() : guessCats(text);
+      capEdit.date = capIsDate ? dv : null;
+      capEdit.occurred = wv;
+      capEdit.day = st ? dayOn(parseISO(wv), st) : null;
+      capEdit.phase = st ? phaseFor(capEdit.day, st.len) : null;
+      capEdit.edited = iso(today());
+    } else {
+      var wday = st ? dayOn(parseISO(wv), st) : null;
+      D.entries.push({
+        id:uid(),
+        type: capIsDate ? "date" : "memory",
+        source: sourceOf(capKind),
+        kind: capKind,
+        text: text,
+        cats: capCats.length ? capCats.slice() : guessCats(text),
+        date: capIsDate ? dv : null,
+        occurred: wv,
+        created: iso(today()),
+        confirmed: null,
+        day: wday,
+        phase: (st && wday) ? phaseFor(wday, st.len) : null
+      });
+    }
+    save(D);
+    closeCap();
+    setView("play");
+  });
+
+  /* ---------- setup ---------- */
+  var llSel = null;
+  Array.prototype.forEach.call(document.querySelectorAll("#f-ll .chip"), function(ch){
+    ch.addEventListener("click", function(){
+      llSel = ch.dataset.ll;
+      Array.prototype.forEach.call(document.querySelectorAll("#f-ll .chip"), function(o){
+        o.setAttribute("aria-pressed", o === ch ? "true":"false");
+      });
+    });
+  });
+  function openSheet(isSetup){
+    document.getElementById("close-settings").hidden = isSetup;
+    document.getElementById("f-reset").hidden = isSetup;
+    document.getElementById("sheet-eyebrow").textContent = isSetup ? "First run" : "Setup";
+    document.getElementById("sheet-title").textContent = isSetup ? "Set up Tide" : "Setup";
+    document.getElementById("sheet-lede").textContent = isSetup
+      ? "The date is the part that matters, so get it from her rather than guessing."
+      : "Change anything here. Logged periods live on the Cycle tab.";
+    if(D && D.cycle.starts.length){
+      document.getElementById("f-name").value = D.partner.name || "";
+      document.getElementById("f-start").value = D.cycle.starts[D.cycle.starts.length-1] || "";
+      document.getElementById("f-len").value = st ? st.len : (D.cycle.len || 28);
+      document.getElementById("f-see").value = D.prefs.see || "";
+      llSel = D.prefs.love || null;
+      Array.prototype.forEach.call(document.querySelectorAll("#f-ll .chip"), function(o){
+        o.setAttribute("aria-pressed", o.dataset.ll === llSel ? "true":"false");
+      });
+    }
+    sheet.hidden = false; app.hidden = !!isSetup;
+    tabs.hidden = !!isSetup; fab.hidden = true;
+    window.scrollTo(0,0);
+  }
+  document.getElementById("open-settings").addEventListener("click", function(){ openSheet(false); });
+  document.getElementById("close-settings").addEventListener("click", function(){
+    sheet.hidden = true; app.hidden = false; tabs.hidden = false; fab.hidden = false; render();
+  });
+  document.getElementById("f-save").addEventListener("click", function(){
+    var err = document.getElementById("f-err");
+    var name = document.getElementById("f-name").value.trim();
+    var start = document.getElementById("f-start").value;
+    var see = document.getElementById("f-see").value;
+    var len = parseInt(document.getElementById("f-len").value,10);
+    if(!start){ err.hidden=false; err.textContent="Add the first day of her most recent period."; return; }
+    if(parseISO(start) > today()){ err.hidden=false; err.textContent="That date is in the future."; return; }
+    if(!(len>=21 && len<=45)){ err.hidden=false; err.textContent="Cycle length should be between 21 and 45 days."; return; }
+    err.hidden = true;
+
+    if(!D) D = blank();
+    D.partner.name = name;
+    if(D.cycle.starts.indexOf(start) === -1) D.cycle.starts.push(start);
+    D.cycle.starts.sort();
+    D.cycle.len = len;
+    D.cycle.lenManual = D.cycle.starts.length < 2 ? true : (len !== avgLength(D.cycle.starts, len));
+    D.prefs.see = see || "";
+    D.prefs.love = llSel || D.prefs.love || "time";
+    save(D);
+    sheet.hidden = true; app.hidden = false; tabs.hidden = false; fab.hidden = false;
+    bump = 0; setView("today");
+  });
+  document.getElementById("f-reset").addEventListener("click", function(){
+    if(!confirm("Erase the playbook, all logged dates, ratings and settings from this phone?")) return;
+    try{ [KEY,OLD3,OLD2,OLD1].forEach(function(k){ localStorage.removeItem(k); }); }catch(e){}
+    D = null;
+    ["f-name","f-start","f-see"].forEach(function(id){ document.getElementById(id).value = ""; });
+    document.getElementById("f-len").value = 28;
+    llSel = null;
+    Array.prototype.forEach.call(document.querySelectorAll("#f-ll .chip"), function(o){
+      o.setAttribute("aria-pressed","false");
+    });
+    openSheet(true);
+  });
+
+  /* ================= boot ================= */
+  D = load();
+  if(!D){ D = blank(); openSheet(true); }
+  else {
+    sheet.hidden = true; app.hidden = false; tabs.hidden = false; fab.hidden = false;
+    setView("today");
+  }
+  document.addEventListener("visibilitychange", function(){
+    if(!document.hidden && D && D.cycle.starts.length && sheet.hidden && cap.hidden){
+      bump = 0; render();
+    }
+  });
+})();
+</script>
+</body>
+</html>
