@@ -391,10 +391,10 @@
     </div>
     <span class="hint" id="kind-hint">Things she said. Kept as stated.</span>
 
-    <label>When did this happen?
+    <label id="when-wrap">When did this happen?
       <input type="date" id="cap-when">
-      <span class="hint">Defaults to today. Change it if you're logging something
-        from earlier, so it gets stamped with the right cycle day.</span>
+      <span class="hint">Only asked for things that happened on a day. Change it if
+        you're logging something from earlier, so it lands on the right cycle day.</span>
     </label>
 
     <label>Filed under <span class="hint" style="display:inline">tap to change</span></label>
@@ -1440,7 +1440,9 @@
           sub = "Yearly · "+shortDate(parseISO(e.date));
         } else {
           sub = provLabel(e);
-          if(e.occurred && e.occurred !== e.created) sub += " · happened "+shortDate(parseISO(e.occurred));
+          if(e.occurred && e.occurred !== e.created){
+            sub += " · happened "+shortDate(parseISO(e.occurred));
+          }
           if(e.source === "user" && !e.confirmed){
             btn = '<button class="pill" data-ok="'+e.id+'" style="margin-top:8px">She confirmed it</button>';
           }
@@ -1661,16 +1663,21 @@
     cap.hidden = true; tabs.hidden = false; fab.hidden = false; render();
   }
   var KIND_HINT = {
-    stated:"Things she said. Kept as stated, and treated as settled.",
+    stated:"Things she said. Kept as stated, and treated as settled. No date needed: preload as much as you already know.",
     observed:"Something you actually saw or heard. Recorded as yours, not as a fact about her, until she confirms it.",
     inferred:"Your read on her. Held loosely: the app will never build on it as though she said it."
   };
+  function syncWhen(){
+    // Only an event has a date worth recording. Stated facts and saved dates don't.
+    document.getElementById("when-wrap").hidden = (capKind === "stated") || capIsDate;
+  }
   function setKind(k){
     capKind = k;
     ["stated","observed","inferred"].forEach(function(n){
       document.getElementById("k-"+n).setAttribute("aria-pressed", k===n?"true":"false");
     });
     document.getElementById("kind-hint").textContent = KIND_HINT[k];
+    syncWhen();
   }
   ["stated","observed","inferred"].forEach(function(n){
     document.getElementById("k-"+n).addEventListener("click", function(){ setKind(n); });
@@ -1703,6 +1710,7 @@
   document.getElementById("cap-date-toggle").addEventListener("click", function(){
     capIsDate = !capIsDate;
     document.getElementById("date-wrap").hidden = !capIsDate;
+    syncWhen();
     this.textContent = capIsDate ? "Not a date, just a note" : "This is a date to remember";
     if(capIsDate && capCats.indexOf("Important dates") === -1){ capCats = ["Important dates"]; drawCapCats(); }
   });
@@ -1716,7 +1724,9 @@
     var wv = document.getElementById("cap-when").value || iso(today());
     if(!text){ err.hidden = false; err.textContent = "Write what you want to remember."; return; }
     if(capIsDate && !dv){ err.hidden = false; err.textContent = "Pick the date, or switch it back to a note."; return; }
-    if(parseISO(wv) > today()){ err.hidden = false; err.textContent = "That's in the future. When did this actually happen?"; return; }
+    if(capKind !== "stated" && !capIsDate && parseISO(wv) > today()){
+      err.hidden = false; err.textContent = "That's in the future. When did this actually happen?"; return;
+    }
     err.hidden = true;
     if(capEdit){
       // Editing keeps the original capture date: when you learned it still matters.
@@ -1726,12 +1736,16 @@
       capEdit.text = text;
       capEdit.cats = capCats.length ? capCats.slice() : guessCats(text);
       capEdit.date = capIsDate ? dv : null;
-      capEdit.occurred = wv;
-      capEdit.day = st ? dayOn(parseISO(wv), st) : null;
-      capEdit.phase = st ? phaseFor(capEdit.day, st.len) : null;
+      var tl = (capKind === "stated") || capIsDate;
+      capEdit.occurred = tl ? null : wv;
+      capEdit.day = (st && !tl) ? dayOn(parseISO(wv), st) : null;
+      capEdit.phase = (st && capEdit.day) ? phaseFor(capEdit.day, st.len) : null;
       capEdit.edited = iso(today());
     } else {
-      var wday = st ? dayOn(parseISO(wv), st) : null;
+      // Stated facts carry no event date, so nothing downstream can mistake the
+      // day it was typed for the day something happened.
+      var timeless = (capKind === "stated") || capIsDate;
+      var wday = (st && !timeless) ? dayOn(parseISO(wv), st) : null;
       D.entries.push({
         id:uid(),
         type: capIsDate ? "date" : "memory",
@@ -1740,7 +1754,7 @@
         text: text,
         cats: capCats.length ? capCats.slice() : guessCats(text),
         date: capIsDate ? dv : null,
-        occurred: wv,
+        occurred: timeless ? null : wv,
         created: iso(today()),
         confirmed: null,
         day: wday,
