@@ -259,6 +259,7 @@
     <div class="ask" id="askbox">
       <span>Ask, don't assume</span>
       <q id="ask-q"></q>
+      <div class="rowbtns"><button class="pill" id="log-answer">Log what she said</button></div>
     </div>
 
     <div class="tide" id="tide"></div>
@@ -415,6 +416,7 @@
     <h1 id="cap-title">What happened?</h1>
     <p class="lede">Write it how you'd say it. Tap the microphone on your keyboard if talking is faster.</p>
 
+    <div class="hint" id="cap-ctx" hidden style="margin:0 0 10px"></div>
     <textarea id="cap-text" placeholder="She mentioned she loves LEGO flower sets."></textarea>
 
     <label>Where did this come from?</label>
@@ -425,10 +427,14 @@
     </div>
     <span class="hint" id="kind-hint">Things she said. Kept as stated.</span>
 
+    <div class="chips" style="margin-top:12px">
+      <button class="chip" id="k-timed" aria-pressed="false">This happened on a day</button>
+    </div>
+
     <label id="when-wrap">When did this happen?
       <input type="date" id="cap-when">
-      <span class="hint">Only asked for things that happened on a day. Change it if
-        you're logging something from earlier, so it lands on the right cycle day.</span>
+      <span class="hint">Change it if you're logging something from earlier, so it lands
+        on the right cycle day.</span>
     </label>
 
     <label>Filed under <span class="hint" style="display:inline">tap to change</span></label>
@@ -485,6 +491,14 @@
     </div>
     <span class="hint">Shapes the Do suggestions. Change it whenever.</span>
 
+    <label>Money right now</label>
+    <div class="chips" id="f-budget" role="group" aria-label="Money right now">
+      <button class="chip" data-b="ok" aria-pressed="true">Some room</button>
+      <button class="chip" data-b="tight" aria-pressed="false">Tight</button>
+    </div>
+    <span class="hint">On tight, Tide stops suggesting anything that costs money. Attention
+      is free and usually lands harder anyway.</span>
+
     <p class="err" id="f-err" hidden></p>
     <button class="btn" id="f-save">Save</button>
     <button class="danger" id="f-reset" hidden>Erase everything and start over</button>
@@ -527,7 +541,7 @@
     return {
       schema:4, user:{name:""}, partner:{name:"", pronoun:"she"},
       cycle:{starts:[], len:28, lenManual:true},
-      prefs:{love:"time", see:""},
+      prefs:{love:"time", see:"", budget:"ok"},
       entries:[], feedback:{}, log:[], modeOverride:null
     };
   }
@@ -1181,6 +1195,24 @@
   function idsFor(prefix, arr){
     return arr.map(function(_,i){ return prefix+"|"+i; });
   }
+  // Suggestions that need money. Keyword matching is coarse on purpose: a false
+  // positive costs one hidden suggestion, a false negative costs a tone-deaf one
+  // aimed at someone who just said things are tight.
+  var COSTS = ["order","deliver","buy","flowers","gift","grocer","restaurant",
+    "reservation","book the","booking","pick up","takeout","indulgent","painkiller",
+    "snack","comfort food","tea ","heat patch","bring home","send her","have her",
+    "night out","dinner to her"];
+  function costsMoney(text){
+    var t = (text||"").toLowerCase();
+    for(var i=0;i<COSTS.length;i++){ if(t.indexOf(COSTS[i]) !== -1) return true; }
+    return false;
+  }
+  function affordable(ids){
+    if(D.prefs.budget !== "tight") return ids;
+    var free = ids.filter(function(id){ return !costsMoney(TEXT_OF[id]); });
+    return free;
+  }
+
   function fillName(s){
     var n = (D.partner.name||"").trim();
     if(n) return s.replace(/\{name\}/g, n);
@@ -1241,10 +1273,26 @@
     var doIds, sayIds, skipIds, doArr, sayArr, skipArr;
     if(ck){
       doArr = CTX[ck].do;   doIds   = idsFor("ctx."+ck+"|do", doArr);
+      var keptC = affordable(doIds);
+      if(keptC.length) doIds = keptC;
       sayArr = CTX[ck].say; sayIds  = idsFor("ctx."+ck+"|say", sayArr);
       skipArr= CTX[ck].skip;skipIds = idsFor("ctx."+ck+"|skip", skipArr);
     } else {
-      doArr = set.do[ll] || set.do.time; doIds = idsFor(ph+"|"+(apart?"apart":"together")+"|do."+((set.do[ll])?ll:"time"), doArr);
+      var useLl = set.do[ll] ? ll : "time";
+      doArr = set.do[useLl];
+      doIds = idsFor(ph+"|"+(apart?"apart":"together")+"|do."+useLl, doArr);
+      // When money is tight, drop the suggestions that need it; if that empties the
+      // bucket, borrow free ones from the other love languages for this phase.
+      var kept = affordable(doIds);
+      if(!kept.length){
+        var pool = [];
+        Object.keys(set.do).forEach(function(l){
+          if(l === "gifts") return;
+          pool = pool.concat(idsFor(ph+"|"+(apart?"apart":"together")+"|do."+l, set.do[l]));
+        });
+        kept = affordable(pool);
+      }
+      doIds = kept.length ? kept : doIds;
       sayArr = set.say;  sayIds  = idsFor(ph+"|"+(apart?"apart":"together")+"|say", sayArr);
       skipArr= set.skip; skipIds = idsFor(ph+"|"+(apart?"apart":"together")+"|skip", skipArr);
     }
@@ -1386,7 +1434,8 @@
   function dateFlag(flag, up){
     flag.hidden = false; flag.className = "flag note";
     var gifts = memories().filter(function(e){ return e.cats.indexOf("Gift ideas") !== -1; }).length;
-    flag.innerHTML = "<b>"+esc(up.label)+" in "+up.days+" day"+(up.days===1?"":"s")+".</b> "+
+    var lab = up.label.length > 42 ? up.label.slice(0,40).trim()+"\u2026" : up.label;
+    flag.innerHTML = "<b>"+esc(lab)+" in "+up.days+" day"+(up.days===1?"":"s")+".</b> "+
       (gifts ? "You've saved "+gifts+" gift idea"+(gifts===1?"":"s")+" in your playbook."
              : "Nothing saved under gift ideas yet.");
   }
@@ -1783,10 +1832,11 @@
   });
 
   /* ---------- capture ---------- */
-  var capKind = "stated", capCats = [], capIsDate = false, capEdit = null;
-  function openCap(entry){
+  var capKind = "stated", capCats = [], capIsDate = false, capEdit = null, capTimed = false;
+  function openCap(entry, opts){
+    opts = opts || {};
     capEdit = entry || null;
-    capKind = capEdit ? (capEdit.kind || "stated") : "stated";
+    capKind = capEdit ? (capEdit.kind || "stated") : (opts.kind || "stated");
     capCats = capEdit ? capEdit.cats.slice() : [];
     capIsDate = capEdit ? capEdit.type === "date" : false;
     document.getElementById("cap-text").value = capEdit ? capEdit.text : "";
@@ -1795,13 +1845,17 @@
     document.getElementById("cap-when").value =
       (capEdit && capEdit.occurred) ? capEdit.occurred : iso(today());
     document.getElementById("cap-when").max = iso(today());
+    var cx = document.getElementById("cap-ctx");
+    cx.hidden = !opts.ctx;
+    cx.textContent = opts.ctx || "";
+    capTimed = capEdit ? !!capEdit.occurred : (opts.timed != null ? opts.timed : (capKind !== "stated"));
     document.getElementById("cap-err").hidden = true;
     document.getElementById("date-wrap").hidden = !capIsDate;
     document.getElementById("cap-date-toggle").textContent = capIsDate
       ? "Not a date, just a note" : "This is a date to remember";
     document.getElementById("cap-title").textContent = capEdit ? "Fix this" : "What happened?";
     document.getElementById("cap-save").textContent = capEdit ? "Save changes" : "Save";
-    setKind(capKind);
+    setKind(capKind, true);
     drawCapCats();
     cap.hidden = false; tabs.hidden = true; fab.hidden = true;
     setTimeout(function(){ document.getElementById("cap-text").focus(); }, 80);
@@ -1815,19 +1869,30 @@
     inferred:"Your read on her. Held loosely: the app will never build on it as though she said it."
   };
   function syncWhen(){
-    // Only an event has a date worth recording. Stated facts and saved dates don't.
-    document.getElementById("when-wrap").hidden = (capKind === "stated") || capIsDate;
+    // Whether something has a date depends on whether it was an EVENT, not on who
+    // said it: "she told me she feels sick today" is both stated and dated.
+    document.getElementById("k-timed").parentNode.hidden = capIsDate;
+    document.getElementById("k-timed").setAttribute("aria-pressed", capTimed ? "true" : "false");
+    document.getElementById("when-wrap").hidden = !capTimed || capIsDate;
   }
-  function setKind(k){
+  function setKind(k, keepTimed){
     capKind = k;
     ["stated","observed","inferred"].forEach(function(n){
       document.getElementById("k-"+n).setAttribute("aria-pressed", k===n?"true":"false");
     });
     document.getElementById("kind-hint").textContent = KIND_HINT[k];
+    if(!keepTimed) capTimed = (k !== "stated");   // a sensible default, not a rule
     syncWhen();
   }
+  document.getElementById("k-timed").addEventListener("click", function(){
+    capTimed = !capTimed; syncWhen();
+  });
   ["stated","observed","inferred"].forEach(function(n){
     document.getElementById("k-"+n).addEventListener("click", function(){ setKind(n); });
+  });
+  document.getElementById("log-answer").addEventListener("click", function(){
+    openCap(null, {kind:"observed", timed:true,
+      ctx:"What she actually said, in her words. Dated today, so it counts toward her patterns later."});
   });
   function sourceOf(k){ return k === "stated" ? "partner" : "user"; }
 
@@ -1871,7 +1936,7 @@
     var wv = document.getElementById("cap-when").value || iso(today());
     if(!text){ err.hidden = false; err.textContent = "Write what you want to remember."; return; }
     if(capIsDate && !dv){ err.hidden = false; err.textContent = "Pick the date, or switch it back to a note."; return; }
-    if(capKind !== "stated" && !capIsDate && parseISO(wv) > today()){
+    if(capTimed && !capIsDate && parseISO(wv) > today()){
       err.hidden = false; err.textContent = "That's in the future. When did this actually happen?"; return;
     }
     err.hidden = true;
@@ -1883,7 +1948,7 @@
       capEdit.text = text;
       capEdit.cats = capCats.length ? capCats.slice() : guessCats(text);
       capEdit.date = capIsDate ? dv : null;
-      var tl = (capKind === "stated") || capIsDate;
+      var tl = !capTimed || capIsDate;
       capEdit.occurred = tl ? null : wv;
       capEdit.day = (st && !tl) ? dayOn(parseISO(wv), st) : null;
       capEdit.phase = (st && capEdit.day) ? phaseFor(capEdit.day, st.len) : null;
@@ -1891,7 +1956,7 @@
     } else {
       // Stated facts carry no event date, so nothing downstream can mistake the
       // day it was typed for the day something happened.
-      var timeless = (capKind === "stated") || capIsDate;
+      var timeless = !capTimed || capIsDate;
       var wday = (st && !timeless) ? dayOn(parseISO(wv), st) : null;
       D.entries.push({
         id:uid(),
@@ -1914,6 +1979,16 @@
   });
 
   /* ---------- setup ---------- */
+  var budgetSel = "ok";
+  Array.prototype.forEach.call(document.querySelectorAll("#f-budget .chip"), function(ch){
+    ch.addEventListener("click", function(){
+      budgetSel = ch.dataset.b;
+      Array.prototype.forEach.call(document.querySelectorAll("#f-budget .chip"), function(o){
+        o.setAttribute("aria-pressed", o === ch ? "true" : "false");
+      });
+    });
+  });
+
   var llSel = null;
   Array.prototype.forEach.call(document.querySelectorAll("#f-ll .chip"), function(ch){
     ch.addEventListener("click", function(){
@@ -1939,6 +2014,10 @@
       llSel = D.prefs.love || null;
       Array.prototype.forEach.call(document.querySelectorAll("#f-ll .chip"), function(o){
         o.setAttribute("aria-pressed", o.dataset.ll === llSel ? "true":"false");
+      });
+      budgetSel = D.prefs.budget || "ok";
+      Array.prototype.forEach.call(document.querySelectorAll("#f-budget .chip"), function(o){
+        o.setAttribute("aria-pressed", o.dataset.b === budgetSel ? "true":"false");
       });
     }
     sheet.hidden = false; app.hidden = !!isSetup;
@@ -1968,6 +2047,7 @@
     D.cycle.lenManual = D.cycle.starts.length < 2 ? true : (len !== avgLength(D.cycle.starts, len));
     D.prefs.see = see || "";
     D.prefs.love = llSel || D.prefs.love || "time";
+    D.prefs.budget = budgetSel || "ok";
     save(D);
     sheet.hidden = true; app.hidden = false; tabs.hidden = false; fab.hidden = false;
     bump = 0; setView("today");
